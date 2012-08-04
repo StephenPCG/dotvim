@@ -49,3 +49,6 @@
 [submodule "bundles-available/fugitive"]
 	path = bundles-available/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundles-available/fuzzyfinder"]
+	path = bundles-available/fuzzyfinder
+	url = git://github.com/StephenPCG/vim-fuzzyfinder
