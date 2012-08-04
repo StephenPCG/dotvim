@@ -37,3 +37,6 @@
 [submodule "bundles-available/neocomplcache-snippets-complete"]
 	path = bundles-available/neocomplcache-snippets-complete
 	url = git://github.com/Shougo/neocomplcache-snippets-complete.git
+[submodule "bundles-available/syntastic"]
+	path = bundles-available/syntastic
+	url = git://github.com/scrooloose/syntastic.git
