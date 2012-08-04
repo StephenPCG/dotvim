@@ -1,0 +1,14 @@
+#!/bin/bash
+
+module=$1
+
+if [[ -e $module ]]; then
+    rm -i $module
+    exit 0
+fi
+
+if [[ -e bundle/$module ]]; then
+    rm -i bundle/$module
+    exit 0
+fi
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+module=$1
+
+if [[ -e $module ]]; then
+    ln -s ../$module bundle/$(basename $module)
+    exit 0
+fi
+
+if [[ ! -e bundles-available/$module ]]; then
+    echo "module '$module' does not exist"
+    exit 1
+fi
+ln -s ../bundles-available/$module bundle/$module
