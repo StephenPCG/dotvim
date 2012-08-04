@@ -55,3 +55,6 @@
 [submodule "bundles-available/unimpaired"]
 	path = bundles-available/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundles-available/tabular"]
+	path = bundles-available/tabular
+	url = git://github.com/godlygeek/tabular.git
