@@ -46,3 +46,6 @@
 [submodule "bundles-available/gundo"]
 	path = bundles-available/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundles-available/fugitive"]
+	path = bundles-available/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
