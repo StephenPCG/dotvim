@@ -52,3 +52,6 @@
 [submodule "bundles-available/fuzzyfinder"]
 	path = bundles-available/fuzzyfinder
 	url = git://github.com/StephenPCG/vim-fuzzyfinder
+[submodule "bundles-available/unimpaired"]
+	path = bundles-available/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
