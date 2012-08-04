@@ -7,3 +7,6 @@
 [submodule "bundles-available/tlib"]
 	path = bundles-available/tlib
 	url = git://github.com/tomtom/tlib_vim.git
+[submodule "bundles-available/neocomplcache"]
+	path = bundles-available/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
