@@ -1,7 +1,7 @@
 " vimrc by Stephen Zhang <StephenPCG@gmail.com>
 set nocompatible 
 set t_Co=256
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " to install Vimballs:
