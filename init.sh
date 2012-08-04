@@ -11,3 +11,8 @@ git submodule update
 
 
 ## some plugins needs additional compile stuffs
+
+# vimproc
+pushd bundle/vimproc
+make -f make_unix.mak
+popd

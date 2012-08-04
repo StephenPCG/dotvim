@@ -10,3 +10,9 @@
 [submodule "bundles-available/neocomplcache"]
 	path = bundles-available/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundles-available/vimproc"]
+	path = bundles-available/vimproc
+	url = git://github.com/Shougo/vimproc.git
+[submodule "bundles-available/vimshell"]
+	path = bundles-available/vimshell
+	url = git://github.com/Shougo/vimshell.git
