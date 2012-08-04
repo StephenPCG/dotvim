@@ -22,3 +22,6 @@
 [submodule "bundles-available/tagbar"]
 	path = bundles-available/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "bundles-available/tskeleton"]
+	path = bundles-available/tskeleton
+	url = git://github.com/tomtom/tskeleton_vim.git

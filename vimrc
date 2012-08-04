@@ -219,10 +219,6 @@ let g:fuf_dataDir = ''
 " tSkeleton
 " http://www.vim.org/scripts/script.php?script_id=1160
 " https://github.com/tomtom/tskeleton_vim
-let g:tskelUserName = "Zhang Cheng"
-let g:tskelUserEmail = "cheng.zhang@cloudacc-inc.com"
-autocmd BufNewFile *.py TSkeletonSetup general.py
-autocmd BufNewFile *.sh TSkeletonSetup general.sh
 
 " grep.vim 
 " http://www.vim.org/scripts/script.php?script_id=311
@@ -392,3 +388,5 @@ inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
 inoremap <leader>5 <><esc>:let leavechar=">"<cr>i
 inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
+
+silent! source $HOME/.vim/personal.vimrc

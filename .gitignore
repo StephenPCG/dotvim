@@ -1,3 +1,4 @@
 cache/
 *.swp
 tags
+personal.vimrc
