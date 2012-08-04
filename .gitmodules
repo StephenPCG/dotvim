@@ -4,3 +4,6 @@
 [submodule "bundles-available/l9"]
 	path = bundles-available/l9
 	url = git://github.com/StephenPCG/vim-l9.git
+[submodule "bundles-available/tlib"]
+	path = bundles-available/tlib
+	url = git://github.com/tomtom/tlib_vim.git
