@@ -40,3 +40,6 @@
 [submodule "bundles-available/syntastic"]
 	path = bundles-available/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundles-available/snipmate"]
+	path = bundles-available/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
