@@ -9,6 +9,8 @@ git submodule update
 
 ## install required tools
 
+# clang_complete requires clang installed
+#TODO detect and prompt to install clang
 
 ## some plugins needs additional compile stuffs
 
