@@ -34,3 +34,6 @@
 [submodule "bundles-available/clang_complete"]
 	path = bundles-available/clang_complete
 	url = git://github.com/Rip-Rip/clang_complete.git
+[submodule "bundles-available/neocomplcache-snippets-complete"]
+	path = bundles-available/neocomplcache-snippets-complete
+	url = git://github.com/Shougo/neocomplcache-snippets-complete.git
