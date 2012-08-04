@@ -25,3 +25,6 @@
 [submodule "bundles-available/tskeleton"]
 	path = bundles-available/tskeleton
 	url = git://github.com/tomtom/tskeleton_vim.git
+[submodule "bundles-available/nerdtree"]
+	path = bundles-available/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git

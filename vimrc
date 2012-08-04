@@ -167,6 +167,7 @@ let NERDTreeWinPos = "right"
 let NERDTreeWinSize = s:PlugWinSize 
 let NERDTreeShowHidden = 0
 let NERDTreeIgnore = ['\.pyc$', '\.swp$']
+let NERDTreeHijackNetrw = 0
 
 " Buffers Explorer
 " http://vim.sourceforge.net/scripts/script.php?script_id=42

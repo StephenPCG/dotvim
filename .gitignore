@@ -2,3 +2,5 @@ cache/
 *.swp
 tags
 personal.vimrc
+.netrwhist
+.VimballRecord
