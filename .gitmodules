@@ -19,3 +19,6 @@
 [submodule "bundles-available/powerline"]
 	path = bundles-available/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "bundles-available/tagbar"]
+	path = bundles-available/tagbar
+	url = git://github.com/majutsushi/tagbar.git
