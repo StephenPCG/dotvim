@@ -55,9 +55,6 @@ set laststatus=2
 " restore last position when opening a file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" don't close window when deleting buffer
-command! Bclose call <SID>BufcloseCloseIt()
-
 set list
 "set listchars=tab:▸\ ,eol:¬
 set listchars=tab:▸\ 

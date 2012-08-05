@@ -143,3 +143,6 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 " Gundo
 " http://www.vim.org/scripts/script.php?script_id=3304
 " https://github.com/sjl/gundo.vim/
+
+" fugitive
+autocmd BufReadPost fugitive://* set bufhidden=delete

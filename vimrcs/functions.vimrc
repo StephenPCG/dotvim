@@ -58,7 +58,14 @@ function! VisualSearch(direction) range
     let @" = l:saved_reg
 endfunction
 
+function! IsRemote()
+    if empty($SSH_CONNECTION) | return 0 | else | return 1 | endif
+    " TODO judge other remote method, rsh/telnet ...
+endfunction
+
 " don't close window when deleting buffer
+command! Bclose call <SID>BufcloseCloseIt()
+
 function! <SID>BufcloseCloseIt()
     let l:currentBufNum = bufnr("%")
     let l:alternateBufNum = bufnr("#")
