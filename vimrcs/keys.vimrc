@@ -16,7 +16,7 @@ nmap <C-X> :VimShell<cr>
 map gf :tabnew <cfile><cr>
 nn <c-n> :bn<cr>
 nn <c-h> :bp<cr>
-if (g:isGUI)
+if (IsGui())
     nn <m-n> :tabnext<cr>
     nn <m-h> :tabprevious<cr>
     nn <m-d> :tabclose<cr>
