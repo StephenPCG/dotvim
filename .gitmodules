@@ -19,15 +19,9 @@
 [submodule "bundles-available/tagbar"]
 	path = bundles-available/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundles-available/tskeleton"]
-	path = bundles-available/tskeleton
-	url = git://github.com/tomtom/tskeleton_vim.git
 [submodule "bundles-available/nerdtree"]
 	path = bundles-available/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundles-available/nerdcommenter"]
-	path = bundles-available/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "bundles-available/clang_complete"]
 	path = bundles-available/clang_complete
 	url = git://github.com/Rip-Rip/clang_complete.git
