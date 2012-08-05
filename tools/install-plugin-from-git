@@ -6,8 +6,8 @@ giturl=$1
 module=$2
 
 git submodule add $giturl bundles-available/$module
-ln -s ../bundles-available/$module bundle/
-git add bundle/$module
+ln -s ../bundles-available/$module bundles-enabled/
+git add bundles-enabled/$module
 git ci -m "Install $module"
 
 # vim:ai:et:sts=4:tw=80:sw=4:

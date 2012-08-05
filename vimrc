@@ -2,8 +2,8 @@
 set nocompatible 
 set t_Co=256
 
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
+runtime bundles-enabled/pathogen/autoload/pathogen.vim
+call pathogen#infect('bundles-enabled')
 
 silent! source $HOME/.vim/vimrcs/functions.vimrc
 silent! source $HOME/.vim/vimrcs/general.vimrc

@@ -3,7 +3,7 @@
 module=$1
 
 if [[ -e $module ]]; then
-    ln -s ../$module bundle/$(basename $module)
+    ln -s ../$module bundles-enabled/$(basename $module)
     exit 0
 fi
 
@@ -11,4 +11,4 @@ if [[ ! -e bundles-available/$module ]]; then
     echo "module '$module' does not exist"
     exit 1
 fi
-ln -s ../bundles-available/$module bundle/$module
+ln -s ../bundles-available/$module bundles-enabled/$module

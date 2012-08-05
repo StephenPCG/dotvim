@@ -1,6 +1,3 @@
-[submodule "bundle/pathogen"]
-	path = bundle/pathogen
-	url = git://github.com/tpope/vim-pathogen.git
 [submodule "bundles-available/l9"]
 	path = bundles-available/l9
 	url = git://github.com/StephenPCG/vim-l9.git
@@ -58,3 +55,6 @@
 [submodule "bundles-available/tabular"]
 	path = bundles-available/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "bundles-available/pathogen"]
+	path = bundles-available/pathogen
+	url = git://github.com/tpope/vim-pathogen.git

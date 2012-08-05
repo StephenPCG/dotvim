@@ -7,8 +7,8 @@ if [[ -e $module ]]; then
     exit 0
 fi
 
-if [[ -e bundle/$module ]]; then
-    rm -i bundle/$module
+if [[ -e bundles-enabled/$module ]]; then
+    rm -i bundles-enabled/$module
     exit 0
 fi
 
