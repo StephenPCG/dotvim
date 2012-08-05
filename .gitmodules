@@ -52,3 +52,6 @@
 [submodule "bundles-available/pathogen"]
 	path = bundles-available/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "bundles-available/nerdcommenter"]
+	path = bundles-available/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
