@@ -58,6 +58,8 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 set list
 "set listchars=tab:▸\ ,eol:¬
 set listchars=tab:▸\ 
+hi SpecialKey ctermfg=grey
+
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
 
