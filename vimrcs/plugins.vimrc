@@ -47,7 +47,8 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 
 " Syntastic
 " https://github.com/scrooloose/syntastic
-" Rocks! no extra options needed
+" Rocks! 
+let g:syntastic_check_on_open=1
 
 " python.vim
 " http://www.vim.org/scripts/script.php?script_id=790
