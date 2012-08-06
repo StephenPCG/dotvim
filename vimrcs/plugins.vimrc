@@ -147,3 +147,8 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" Power Line
+" https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
+" https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+let g:Powerline_symbols = 'fancy'
