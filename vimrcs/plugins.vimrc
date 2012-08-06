@@ -99,7 +99,7 @@ let g:LargeFile = 50
 
 " vimshell 
 " https://github.com/Shougo/vimshell
-let g:vimshell_temporary_directory = expand('~/.cache/vimshell')
+let g:vimshell_temporary_directory = expand('~/.vim/cache/vimshell')
 let g:vimshell_vimshrc_path = expand('~/.vim/bundles-available/vimshell/vimshrc')
 
 " neocomplcache

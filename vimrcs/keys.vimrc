@@ -46,10 +46,10 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-c>  neocomplcache#cancel_popup()
 " f: filename, l: line, d: dictionary, ]: tag
-imap <C-]>             <C-X><C-]>
-imap <C-F>             <C-X><C-F>
-imap <C-D>             <C-X><C-D>
-imap <C-L>             <C-X><C-L> 
+"imap <C-]>             <C-X><C-]>
+"imap <C-F>             <C-X><C-F>
+"imap <C-D>             <C-X><C-D>
+"imap <C-L>             <C-X><C-L> 
 
 " quick fix
 map <leader>cw :cw<cr>
@@ -57,8 +57,8 @@ map <F3> :cp<cr>
 map <F4> :cn<cr>
 
 " search
-"vnoremap <silent> * :call VisualSearch('f')<CR>
-"vnoremap <silent> # :call VisualSearch('b')<CR>
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " plugins
 nmap <silent> T :TagbarToggle<cr>
