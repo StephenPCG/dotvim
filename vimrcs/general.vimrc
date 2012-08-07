@@ -56,9 +56,10 @@ set laststatus=2
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 set list
-"set listchars=tab:▸\ ,eol:¬
-set listchars=tab:▸\ 
-hi SpecialKey ctermfg=grey
+set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ 
+hi SpecialKey ctermfg=238
+hi NonText ctermfg=238
 
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
