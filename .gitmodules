@@ -72,3 +72,6 @@
 [submodule "bundles-available/python-mode"]
 	path = bundles-available/python-mode
 	url = git://github.com/klen/python-mode.git
+[submodule "bundles-available/vim-latex"]
+	path = bundles-available/vim-latex
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
