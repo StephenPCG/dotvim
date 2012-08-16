@@ -272,15 +272,16 @@ endif
 
 
 """""""""" FileType settings """""""""" 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:tex_flavor='latex'
 autocmd FileType latex setlocal iskeyword+=:
 autocmd BufRead,BufNewFile *.vcl setlocal ft=varnish
+autocmd BufNewFile *.py TSkeletonSetup general.py
+autocmd BufNewFile *.sh TSkeletonSetup general.sh
 
 """""""""" key mapping stuffs """""""""" 
 
@@ -403,4 +404,4 @@ inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 " vimshell
 map <F2> :VimShellPop -toggle<CR>
 
-"silent! source $HOME/.vim/vimrcs/personal.vimrc
+silent! source $HOME/.vim/personal.vimrc
