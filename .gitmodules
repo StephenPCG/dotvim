@@ -75,3 +75,6 @@
 [submodule "bundles-available/vim-latex"]
 	path = bundles-available/vim-latex
 	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+[submodule "bundles-available/neocomplcache-clang_complete"]
+	path = bundles-available/neocomplcache-clang_complete
+	url = git://github.com/osyo-manga/neocomplcache-clang_complete.git

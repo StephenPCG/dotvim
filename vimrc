@@ -10,7 +10,9 @@ runtime bundles-enabled/pathogen/autoload/pathogen.vim
 call pathogen#infect('bundles-enabled')
 
 " source custom functions first, elsewhere may need them
-silent! source $HOME/.vim/functions.vimrc
+" this should not be silent, since we need the functions 
+"silent! source $HOME/.vim/functions.vimrc
+source $HOME/.vim/functions.vimrc
 
 """""""""" general settings """"""""""
 syntax enable
@@ -90,22 +92,6 @@ if IsPluginEnabled("tagbar")
     let g:tagbar_width = 30
 endif
 
-" clang-complete
-" http://www.vim.org/scripts/script.php?script_id=3302
-" https://github.com/Rip-Rip/clang_complete
-if IsPluginEnabled("clang_complete")
-    let g:clang_snippets = 1
-    if IsPluginEnabled("snipmate")
-        let g:clang_snippets_engine = 'snipmate'
-    else
-        let g:clang_snippets_engine = 'clang_complete'
-    endif
-endif
-
-" OmniCppComplete (NOT INSTALLED)
-" http://www.vim.org/scripts/script.php?script_id=1520
-" with clang-complete, there is no reason to use this
-
 " NERD Commenter
 " http://www.vim.org/scripts/script.php?script_id=1218
 " https://github.com/scrooloose/nerdcommenter
@@ -164,18 +150,6 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile /etc/nginx/conf/* set ft=nginx 
 au BufRead,BufNewFile /etc/nginx/sites-*/* set ft=nginx 
 
-" AutoComplPop
-" http://www.vim.org/scripts/script.php?script_id=1879
-" https://bitbucket.org/ns9tks/vim-autocomplpop/
-" NOTE it is disabled by neocomplcache
-"let g:AutoComplPop_Behavior = { 
-"\ 'c': [ {'command' : "\<C-x>\<C-o>",
-"\ 'pattern' : ".",
-"\ 'repeat' : 0}
-"\ ] 
-"\}
-"let g:acp_completeoptPreview = 0
-
 " snipMate
 " http://www.vim.org/scripts/script.php?script_id=2540
 " https://github.com/msanders/snipmate.vim
@@ -213,13 +187,28 @@ if IsPluginEnabled("vimshell")
     let g:vimshell_vimshrc_path = expand('~/.vim/vimshrc')
 endif
 
+" AutoComplPop
+" http://www.vim.org/scripts/script.php?script_id=1879
+" https://bitbucket.org/ns9tks/vim-autocomplpop/
+" NOTE it is disabled by neocomplcache
+"let g:AutoComplPop_Behavior = { 
+"\ 'c': [ {'command' : "\<C-x>\<C-o>",
+"\ 'pattern' : ".",
+"\ 'repeat' : 0}
+"\ ] 
+"\}
+"let g:acp_completeoptPreview = 0
+
+" OmniCppComplete (NOT INSTALLED)
+" http://www.vim.org/scripts/script.php?script_id=1520
+" with clang-complete, there is no reason to use this
+
 " neocomplcache
 " http://www.vim.org/scripts/script.php?script_id=2620
 " https://github.com/Shougo/neocomplcache
 " Disable AutoComplPop.
 if IsPluginEnabled("neocomplcache")
     let g:acp_enableAtStartup = 0
-    " Use neocomplcache.
     let g:neocomplcache_enable_at_startup = 1
     " Use smartcase.
     let g:neocomplcache_enable_smart_case = 1
@@ -253,6 +242,27 @@ if IsPluginEnabled("neocomplcache")
     let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
     let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 endif
+
+" clang-complete
+" http://www.vim.org/scripts/script.php?script_id=3302
+" https://github.com/Rip-Rip/clang_complete
+if IsPluginEnabled("clang_complete")
+    let g:clang_snippets = 1
+    if IsPluginEnabled("snipmate")
+        let g:clang_snippets_engine = 'snipmate'
+    else
+        let g:clang_snippets_engine = 'clang_complete'
+    endif
+endif
+
+" use neocomplcache & clang_complete
+" https://github.com/osyo-manga/neocomplcache-clang_complete
+" add neocomplcache option
+let g:neocomplcache_force_overwrite_completefunc=1
+
+" add clang_complete option
+let g:clang_complete_auto=1
+
 
 " Gundo
 " http://www.vim.org/scripts/script.php?script_id=3304
@@ -307,40 +317,18 @@ call MapAltKey("n", "d", ":tabclose<cr>")
 call MapAltKey("n", "t", ":tabnew<cr>")
 call MapAltKey("n", "f", ":Texplore<cr>")
 
-"if (IsGui())
-"    nn <m-n> :tabnext<cr>
-"    nn <m-h> :tabprevious<cr>
-"    nn <m-d> :tabclose<cr>
-"    nn <m-t> :tabnew<cr>
-"    nn <m-f> :Texplore<cr>
-"else
-"    nn <esc>n :tabnext<cr>
-"    nn <esc>h :tabprevious<cr>
-"    nn <esc>d :tabclose<cr>
-"    nn <esc>t :tabnew<cr>
-"    nn <esc>f :Texplore<cr>
-"endif
 " Bash(Emacs) key binding
 imap <C-e> <END>
 imap <C-a> <HOME>
 
 " Auto completion
-" <CR>: close popup and save indent.
-
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-c>  neocomplcache#cancel_popup()
-" f: filename, l: line, d: dictionary, ]: tag
-"imap <C-]>             <C-X><C-]>
-"imap <C-F>             <C-X><C-F>
-"imap <C-D>             <C-X><C-D>
-"imap <C-L>             <C-X><C-L> 
+if IsPluginEnabled("neocomplcache")
+    inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><BS> pumvisible() ? neocomplcache#smart_close_popup()."\<C-h>" : "\<BS>"
+    inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-c>  neocomplcache#cancel_popup()
+endif
 
 " quick fix
 map <leader>cw :cw<cr>
@@ -357,11 +345,13 @@ nmap <leader>n :NERDTreeToggle<cr>
 nmap <silent> F :BufExplorer<CR>
 
 "  fuzzy finder
-nmap <leader>ff <esc>:FufFile<cr>
-nmap <leader>fd <esc>:FufDir<cr>
-nmap <leader>fu <esc>:FufBuffer<cr>
-nmap <leader>ft <esc>:FufTag<cr>
-nmap <silent> <c-\> :FufTag! <c-r>=expand('<cword>')<cr><cr>
+if IsPluginEnabled("fuzzyfinder")
+    nmap <leader>ff <esc>:FufFile<cr>
+    nmap <leader>fd <esc>:FufDir<cr>
+    nmap <leader>fu <esc>:FufBuffer<cr>
+    nmap <leader>ft <esc>:FufTag<cr>
+    nmap <silent> <c-\> :FufTag! <c-r>=expand('<cword>')<cr><cr>
+endif
 
 " cscope bindings 
 if has("cscope")
@@ -402,6 +392,8 @@ inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
 " vimshell
-map <F2> :VimShellPop -toggle<CR>
+if IsPluginEnabled("vimshell")
+    map <F2> :VimShellPop -toggle<CR>
+endif
 
 silent! source $HOME/.vim/personal.vimrc
