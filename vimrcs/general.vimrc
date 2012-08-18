@@ -1,9 +1,5 @@
 "" general settings
 
-if (has("win32") || has("win64") || has("win32unix"))
-    let g:isWin = 1 | else | let g:isWin = 0 | endif
-if has("gui_running") | let g:isGUI = 1 | else | let g:isGUI = 0 | endif
-
 syntax enable
 filetype plugin on
 filetype indent on
@@ -45,7 +41,7 @@ set autoread     " when file is modified outside vim, auto reload
 set mouse=
 
 " encoding stuffs
-if (g:isWin)
+if (IsWindows())
     let &termencoding=&encoding 
     set fileencodings=utf8,cp936,ucs-bom,latin1
 else
@@ -59,12 +55,12 @@ set laststatus=2
 " restore last position when opening a file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" don't close window when deleting buffer
-command! Bclose call <SID>BufcloseCloseIt()
-
 set list
-"set listchars=tab:▸\ ,eol:¬
-set listchars=tab:▸\ 
+set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ 
+hi SpecialKey ctermfg=238
+hi NonText ctermfg=238
+
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
 

@@ -1,6 +1,7 @@
 [submodule "bundles-available/l9"]
 	path = bundles-available/l9
 	url = git://github.com/StephenPCG/vim-l9.git
+	ignore = untracked
 [submodule "bundles-available/tlib"]
 	path = bundles-available/tlib
 	url = git://github.com/tomtom/tlib_vim.git
@@ -13,6 +14,7 @@
 [submodule "bundles-available/vimshell"]
 	path = bundles-available/vimshell
 	url = git://github.com/Shougo/vimshell.git
+	ignore = untracked
 [submodule "bundles-available/powerline"]
 	path = bundles-available/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
@@ -34,6 +36,7 @@
 [submodule "bundles-available/snipmate"]
 	path = bundles-available/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
+	ignore = untracked
 [submodule "bundles-available/gundo"]
 	path = bundles-available/gundo
 	url = https://github.com/sjl/gundo.vim.git
@@ -43,6 +46,7 @@
 [submodule "bundles-available/fuzzyfinder"]
 	path = bundles-available/fuzzyfinder
 	url = git://github.com/StephenPCG/vim-fuzzyfinder
+	ignore = untracked
 [submodule "bundles-available/unimpaired"]
 	path = bundles-available/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
@@ -58,3 +62,13 @@
 [submodule "bundles-available/nerdcommenter"]
 	path = bundles-available/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundles-available/clam"]
+	path = bundles-available/clam
+	url = git://github.com/sjl/clam.vim.git
+	ignore = untracked
+[submodule "bundles-available/markdown"]
+	path = bundles-available/markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundles-available/python-mode"]
+	path = bundles-available/python-mode
+	url = git://github.com/klen/python-mode.git

@@ -16,7 +16,7 @@ nmap <C-X> :VimShell<cr>
 map gf :tabnew <cfile><cr>
 nn <c-n> :bn<cr>
 nn <c-h> :bp<cr>
-if (g:isGUI)
+if (IsGui())
     nn <m-n> :tabnext<cr>
     nn <m-h> :tabprevious<cr>
     nn <m-d> :tabclose<cr>
@@ -35,20 +35,21 @@ imap <C-a> <HOME>
 
 " Auto completion
 " <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
+inoremap <expr><C-c>  neocomplcache#cancel_popup()
 " f: filename, l: line, d: dictionary, ]: tag
-imap <C-]>             <C-X><C-]>
-imap <C-F>             <C-X><C-F>
-imap <C-D>             <C-X><C-D>
-imap <C-L>             <C-X><C-L> 
+"imap <C-]>             <C-X><C-]>
+"imap <C-F>             <C-X><C-F>
+"imap <C-D>             <C-X><C-D>
+"imap <C-L>             <C-X><C-L> 
 
 " quick fix
 map <leader>cw :cw<cr>
@@ -56,8 +57,8 @@ map <F3> :cp<cr>
 map <F4> :cn<cr>
 
 " search
-"vnoremap <silent> * :call VisualSearch('f')<CR>
-"vnoremap <silent> # :call VisualSearch('b')<CR>
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " plugins
 nmap <silent> T :TagbarToggle<cr>
@@ -108,3 +109,6 @@ inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
 inoremap <leader>5 <><esc>:let leavechar=">"<cr>i
 inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
+
+" vimshell
+map <F2> :VimShellPop -toggle<CR>

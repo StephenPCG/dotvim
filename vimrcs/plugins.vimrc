@@ -47,7 +47,11 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 
 " Syntastic
 " https://github.com/scrooloose/syntastic
-" Rocks! no extra options needed
+" Rocks! 
+let g:syntastic_check_on_open=1
+let g:syntastic_mode_map = { 'mode': 'active',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': ['python'] }
 
 " python.vim
 " http://www.vim.org/scripts/script.php?script_id=790
@@ -98,7 +102,7 @@ let g:LargeFile = 50
 
 " vimshell 
 " https://github.com/Shougo/vimshell
-let g:vimshell_temporary_directory = expand('~/.cache/vimshell')
+let g:vimshell_temporary_directory = expand('~/.vim/cache/vimshell')
 let g:vimshell_vimshrc_path = expand('~/.vim/bundles-available/vimshell/vimshrc')
 
 " neocomplcache
@@ -130,7 +134,7 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 " AutoComplPop like behavior.
-let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_select = 0
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
@@ -146,3 +150,33 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" Power Line
+" https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
+" https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+let g:Powerline_symbols = 'fancy'
+" Load pylint code plugin
+let g:pymode_lint = 1
+
+" Switch pylint, pyflakes, pep8, mccabe code-checkers
+" Can have multiply values "pep8,pyflakes,mcccabe"
+let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+
+" Skip errors and warnings
+" E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
+let g:pymode_lint_ignore = ""
+
+" Select errors and warnings
+" E.g. "E4,W"
+let g:pymode_lint_select = ""
+
+" Run linter on the fly
+let g:pymode_lint_onfly = 1
+
+" Load rope plugin
+let g:pymode_rope = 1
+
+" Load breakpoints plugin
+let g:pymode_breakpoint = 0
+
+let g:python_mode_silent = 1

@@ -7,3 +7,4 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
+autocmd BufRead,BufNewFile *.vcl setlocal ft=varnish
