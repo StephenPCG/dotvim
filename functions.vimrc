@@ -43,6 +43,24 @@ function! IsGui()
     if has("gui_running") | return 1 | else | return 0 | endif
 endfunction
 
+function! IsRemote()
+    if empty($SSH_CONNECTION) | return 0 | else | return 1 | endif
+    " TODO judge other remote method, rsh/telnet ...
+endfunction
+
+function! IsPluginEnabled(plugin)
+    if finddir(a:plugin, expand("~/.vim/bundles-enabled/")) != ""
+        return 1 | else | return 0 | endif
+endfunction
+
+function! MapAltKey(mode, combo, command) 
+    if (IsGui())
+        execute a:mode . "map <m-" a:combo . "> " . a:command
+    else 
+        execute a:mode . "map <esc>" . a:combo . " " . a:command
+    endif
+endfunction
+
 " search word under cursor
 function! VisualSearch(direction) range
     let l:saved_reg = @"
@@ -58,31 +76,15 @@ function! VisualSearch(direction) range
     let @" = l:saved_reg
 endfunction
 
-function! IsRemote()
-    if empty($SSH_CONNECTION) | return 0 | else | return 1 | endif
-    " TODO judge other remote method, rsh/telnet ...
-endfunction
-
 " don't close window when deleting buffer
 command! Bclose call <SID>BufcloseCloseIt()
 
 function! <SID>BufcloseCloseIt()
     let l:currentBufNum = bufnr("%")
     let l:alternateBufNum = bufnr("#")
-
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
-
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
-
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
+    if buflisted(l:alternateBufNum) | buffer # | else | bnext | endif
+    if bufnr("%") == l:currentBufNum | new | endif
+    if buflisted(l:currentBufNum) | execute("bdelete! ".l:currentBufNum) | endif
 endfunction
 
 " get current dir
