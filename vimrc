@@ -3,7 +3,8 @@ set nocompatible
 set t_Co=256
 
 if $SUDO_USER != '' && $USER !=# $SUDO_USER && $HOME !=# expand('~'.$USER)
-    let $HOME = expand('~'.$USER)
+    "let $HOME = expand('~'.$USER)
+    finish
 endif
 
 runtime bundles-enabled/pathogen/autoload/pathogen.vim
@@ -98,8 +99,6 @@ endif
 " no extra options here, default key binds is modified in bundles
 if IsPluginEnabled("nerdcommenter")
     let g:NERDCreateDefaultMappings = 0
-    nmap <leader>cc <plug>NERDCommenterToggle
-    xmap <leader>cc <plug>NERDCommenterToggle
 endif
 
 " NERD Tree
@@ -292,6 +291,8 @@ autocmd FileType latex setlocal iskeyword+=:
 autocmd BufRead,BufNewFile *.vcl setlocal ft=varnish
 autocmd BufNewFile *.py TSkeletonSetup general.py
 autocmd BufNewFile *.sh TSkeletonSetup general.sh
+" always set cursor at the beginning of GIT COMMIT file
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 """""""""" key mapping stuffs """""""""" 
 
@@ -381,6 +382,11 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+if IsPluginEnabled("nerdcommenter")
+    nmap <leader>cc <plug>NERDCommenterToggle
+    xmap <leader>cc <plug>NERDCommenterToggle
+endif
 
 " quick input
 inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
