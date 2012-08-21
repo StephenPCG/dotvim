@@ -312,11 +312,11 @@ nmap <C-X> :VimShell<cr>
 "map gf :tabnew <cfile><cr>
 nn <c-n> :bn<cr>
 nn <c-h> :bp<cr>
-call MapAltKey("n", "n", ":tabnext<cr>")
-call MapAltKey("n", "h", ":tabprevious<cr>")
-call MapAltKey("n", "d", ":tabclose<cr>")
-call MapAltKey("n", "t", ":tabnew<cr>")
-call MapAltKey("n", "f", ":Texplore<cr>")
+nmap <m-n> :tabnext<cr>
+nmap <m-h> :tabprevious<cr>
+nmap <m-d> :tabclose<cr>
+nmap <m-t> :tabnew<cr>
+nmap <m-f> :Texplore<cr>
 
 " Bash(Emacs) key binding
 imap <C-e> <END>

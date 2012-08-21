@@ -53,13 +53,16 @@ function! IsPluginEnabled(plugin)
         return 1 | else | return 0 | endif
 endfunction
 
-function! MapAltKey(mode, combo, command) 
-    if (IsGui())
-        execute a:mode . "map <m-" a:combo . "> " . a:command
-    else 
-        execute a:mode . "map <esc>" . a:combo . " " . a:command
-    endif
-endfunction
+" with escalt.vim, there is no need to use this function any more
+" http://lilydjwg.is-programmer.com/posts/23574.html
+" http://lilydjwg.is-programmer.com/user_files/lilydjwg/File/escalt.vim
+"function! MapAltKey(mode, combo, command) 
+"    if (IsGui())
+"        execute a:mode . "map <m-" a:combo . "> " . a:command
+"    else 
+"        execute a:mode . "map <esc>" . a:combo . " " . a:command
+"    endif
+"endfunction
 
 " search word under cursor
 function! VisualSearch(direction) range
