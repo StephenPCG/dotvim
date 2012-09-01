@@ -293,6 +293,7 @@ autocmd BufNewFile *.py TSkeletonSetup general.py
 autocmd BufNewFile *.sh TSkeletonSetup general.sh
 " always set cursor at the beginning of GIT COMMIT file
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+autocmd BufNewFile,BufRead *.as setlocal ft=actionscript
 
 """""""""" key mapping stuffs """""""""" 
 
