@@ -81,3 +81,6 @@
 [submodule "bundles-available/markdown-jekyll"]
 	path = bundles-available/markdown-jekyll
 	url = git://github.com/PProvost/vim-markdown-jekyll.git
+[submodule "bundles-available/markdown-plasticboy"]
+	path = bundles-available/markdown-plasticboy
+	url = git://github.com/plasticboy/vim-markdown.git
