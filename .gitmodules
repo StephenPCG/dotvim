@@ -84,3 +84,6 @@
 [submodule "bundles-available/markdown-plasticboy"]
 	path = bundles-available/markdown-plasticboy
 	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "bundles-available/easymotion"]
+	path = bundles-available/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
