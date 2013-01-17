@@ -78,3 +78,12 @@
 [submodule "bundles-available/neocomplcache-clang_complete"]
 	path = bundles-available/neocomplcache-clang_complete
 	url = git://github.com/osyo-manga/neocomplcache-clang_complete.git
+[submodule "bundles-available/markdown-jekyll"]
+	path = bundles-available/markdown-jekyll
+	url = git://github.com/PProvost/vim-markdown-jekyll.git
+[submodule "bundles-available/markdown-plasticboy"]
+	path = bundles-available/markdown-plasticboy
+	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "bundles-available/easymotion"]
+	path = bundles-available/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
