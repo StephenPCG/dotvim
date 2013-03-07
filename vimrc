@@ -62,6 +62,8 @@ else
     set fileencodings=utf8,gb2312,gb18030,utf-16le,utf-16be,ucs-bom,latin1
 endif
 
+if IsGui() | set gfn=Monaco:h14 | endif
+
 " status line
 set laststatus=2
 
@@ -236,7 +238,7 @@ if IsPluginEnabled("neocomplcache")
     if !exists('g:neocomplcache_omni_patterns')
         let g:neocomplcache_omni_patterns = {}
     endif
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+    "let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
     let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
     let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
     let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
@@ -294,7 +296,7 @@ autocmd BufNewFile *.sh TSkeletonSetup general.sh
 " always set cursor at the beginning of GIT COMMIT file
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd BufNewFile,BufRead *.as setlocal ft=actionscript
-
+autocmd FileType html setlocal ts=8 sts=2 sw=2 expandtab
 """""""""" key mapping stuffs """""""""" 
 
 let mapleader = ";"
