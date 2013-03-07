@@ -75,6 +75,7 @@ set listchars=tab:▸\ ,eol:¬
 " to insert ▸, type: ctrl-v u25b8
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=238
+hi cursorLine cterm=NONE ctermfg=1 ctermbg=252
 
 set completeopt-=preview
 set completeopt+=longest
