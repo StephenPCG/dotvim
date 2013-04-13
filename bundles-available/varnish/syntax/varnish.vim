@@ -58,7 +58,7 @@ syn match  vclNumberTime   display contained "\d\+[dhsm]"
 " client
 syn match  vclOption   /client\.\(ip\|identity\)/
 " server
-syn match  vclOption   /server\.\(ip\|port\)/
+syn match  vclOption   /server\.\(ip\|identity\|port\|hostname\)/
 " req
 syn match  vclOption   /req\.\(hash\|request\|url\|proto\|backend\.healthy\|backend\|grace\|xid\|restarts\)/
 " bereq
