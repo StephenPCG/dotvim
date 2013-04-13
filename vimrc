@@ -8,7 +8,7 @@ if $SUDO_USER != '' && $USER !=# $SUDO_USER && $HOME !=# expand('~'.$USER)
 endif
 
 runtime bundles-enabled/pathogen/autoload/pathogen.vim
-call pathogen#infect('bundles-enabled')
+call pathogen#infect('bundles-enabled/{}')
 
 " source custom functions first, elsewhere may need them
 " this should not be silent, since we need the functions 
