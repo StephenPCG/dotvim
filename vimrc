@@ -2,11 +2,6 @@
 set nocompatible 
 set t_Co=256
 
-if $SUDO_USER != '' && $USER !=# $SUDO_USER && $HOME !=# expand('~'.$USER)
-    "let $HOME = expand('~'.$USER)
-    finish
-endif
-
 runtime bundles-enabled/pathogen/autoload/pathogen.vim
 call pathogen#infect('bundles-enabled/{}')
 
