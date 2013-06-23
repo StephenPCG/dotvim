@@ -401,4 +401,18 @@ if IsPluginEnabled("vimshell")
     map <F2> :VimShellPop -toggle<CR>
 endif
 
+" vimwiki
+nmap <leader>vv <Plug>VimwikiIndex
+nmap <leader>vt <Plug>VimwikiTabIndex
+"nmap <leader>vs <Plug>VimwikiUISelect
+"nmap <leader>vi <Plug>VimwikiDiaryIndex
+"nmap <leader>vd <Plug>VimwikiMakeDiaryNote
+let g:vimwiki_list = [
+            \ {'path': $HOME.'/vimwiki/ppweb/wiki/', 'path_html': $HOME.'/vimwiki/ppweb/html/'},
+            \ {'path': $HOME.'/vimwiki/personal/wiki/', 'path_html': $HOME.'/vimwiki/personal/html/'}
+            \ ]
+let g:vimwiki_hl_cb_checked = 1
+let g:vimwiki_CJK_length = 1
+"let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+
 silent! source $HOME/.vim/personal.vimrc
