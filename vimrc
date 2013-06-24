@@ -408,8 +408,8 @@ nmap <leader>vt <Plug>VimwikiTabIndex
 "nmap <leader>vi <Plug>VimwikiDiaryIndex
 "nmap <leader>vd <Plug>VimwikiMakeDiaryNote
 let g:vimwiki_list = [
-            \ {'path': $HOME.'/vimwiki/ppweb/wiki/', 'path_html': $HOME.'/vimwiki/ppweb/html/'},
-            \ {'path': $HOME.'/vimwiki/personal/wiki/', 'path_html': $HOME.'/vimwiki/personal/html/'}
+            \ {'path': $HOME.'/vimwiki/ppweb/wiki/', 'path_html': $HOME.'/vimwiki/ppweb/html/', 'auto_export': 1},
+            \ {'path': $HOME.'/vimwiki/personal/wiki/', 'path_html': $HOME.'/vimwiki/personal/html/', 'auto_export': 1}
             \ ]
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_CJK_length = 1
