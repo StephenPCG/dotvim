@@ -89,6 +89,24 @@ let s:PlugWinSize = 30
 " https://github.com/majutsushi/tagbar
 if IsPluginEnabled("tagbar")
     let g:tagbar_width = 30
+
+    " vimwiki
+    let g:tagbar_type_vimwiki = {
+                \ 'ctagstype' : 'vimwiki',
+                \ 'kinds'     : [
+                \ 'h:header',
+                \ ],
+                \ 'sort'    : 0
+                \ }
+    " markdown
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype' : 'markdown',
+                \ 'kinds' : [
+                \ 'h:Heading_L1',
+                \ 'i:Heading_L2',
+                \ 'k:Heading_L3'
+                \ ]
+                \ }
 endif
 
 " NERD Commenter
@@ -403,13 +421,22 @@ endif
 
 " vimwiki
 nmap <leader>vv <Plug>VimwikiIndex
-nmap <leader>vt <Plug>VimwikiTabIndex
-"nmap <leader>vs <Plug>VimwikiUISelect
-"nmap <leader>vi <Plug>VimwikiDiaryIndex
-"nmap <leader>vd <Plug>VimwikiMakeDiaryNote
+nmap <leader>vt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [
-            \ {'path': $HOME.'/vimwiki/ppweb/wiki/', 'path_html': $HOME.'/vimwiki/ppweb/html/', 'auto_export': 1},
-            \ {'path': $HOME.'/vimwiki/personal/wiki/', 'path_html': $HOME.'/vimwiki/personal/html/', 'auto_export': 1}
+            \ {'path': $HOME.'/vimwiki/ppweb/wiki/',
+            \  'path_html': $HOME.'/vimwiki/ppweb/html/',
+            \  'auto_export': 1,
+            \  'template_path': $HOME.'/vimwiki/ppweb/template/',
+            \  'template_default': 'default',
+            \  'template_ext': '.html'
+            \},
+            \ {'path': $HOME.'/vimwiki/personal/wiki/',
+            \  'path_html': $HOME.'/vimwiki/personal/html/',
+            \  'auto_export': 1,
+            \  'template_path': $HOME.'/vimwiki/personal/template/',
+            \  'template_default': 'default',
+            \  'template_ext': '.html'
+            \}
             \ ]
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_CJK_length = 1
