@@ -428,14 +428,18 @@ let g:vimwiki_list = [
             \  'auto_export': 1,
             \  'template_path': $HOME.'/vimwiki/ppweb/template/',
             \  'template_default': 'default',
-            \  'template_ext': '.html'
+            \  'template_ext': '.html',
+            \  'css_name': 'assets/style.css',
+            \  'list_margin': 2
             \},
             \ {'path': $HOME.'/vimwiki/personal/wiki/',
             \  'path_html': $HOME.'/vimwiki/personal/html/',
             \  'auto_export': 1,
             \  'template_path': $HOME.'/vimwiki/personal/template/',
             \  'template_default': 'default',
-            \  'template_ext': '.html'
+            \  'template_ext': '.html',
+            \  'css_name': 'assets/style.css',
+            \  'list_margin': 2
             \}
             \ ]
 let g:vimwiki_hl_cb_checked = 1
