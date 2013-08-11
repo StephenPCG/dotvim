@@ -448,4 +448,8 @@ let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_CJK_length = 1
 "let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
+" for golang
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
 silent! source $HOME/.vim/personal.vimrc
