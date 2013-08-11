@@ -57,7 +57,9 @@ else
     set fileencodings=utf8,gb2312,gb18030,utf-16le,utf-16be,ucs-bom,latin1
 endif
 
-if IsGui() | set gfn=Monaco:h14 | endif
+if IsGui()
+    set gfn="WenQuanYi Micro Hei Mono 14"
+endif
 
 " status line
 set laststatus=2
