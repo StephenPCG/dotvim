@@ -90,3 +90,4 @@
 [submodule "bundles-available/vimwiki"]
 	path = bundles-available/vimwiki
 	url = git://github.com/vim-scripts/vimwiki.git
+	ignore = untracked
