@@ -44,6 +44,8 @@ colorscheme desert
 "colorscheme molokai
 "colorscheme desert-modified
 
+inoremap # <space>#
+
 set history=400  " vim default save 20 histories
 set autoread     " when file is modified outside vim, auto reload
 set mouse=
