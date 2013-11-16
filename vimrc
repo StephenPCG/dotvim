@@ -196,8 +196,6 @@ endif
 " http://www.vim.org/scripts/script.php?script_id=1886
 " the following configuration does no harm if filetype plugin is not enabled
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
-au BufRead,BufNewFile /etc/nginx/conf/* set ft=nginx 
-au BufRead,BufNewFile /etc/nginx/sites-*/* set ft=nginx 
 
 " snipMate
 " http://www.vim.org/scripts/script.php?script_id=2540
