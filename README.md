@@ -24,3 +24,9 @@ For those simple plugin, like a purely python.vim, just put it in a good positio
 
 ### Notes
 scripts under tools are poorly written, you are not recommended to use them now
+
+### Powerline Fontconfig
+See docs [here](http://powerline.readthedocs.org/en/latest/installation/linux.html#installation-linux)
+    $ ln -s $HOME/.vim/tools/PowerlineSymbols.otf ~/.fonts/
+    $ ln -s $HOME/.vim/tools/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+    $ fc-cache -vf

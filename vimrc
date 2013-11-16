@@ -43,6 +43,7 @@ set background=dark
 colorscheme desert
 "colorscheme molokai
 "colorscheme desert-modified
+set noshowmode
 
 inoremap # <space>#
 
@@ -320,12 +321,19 @@ if IsPluginEnabled("fugitive")
     autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
 
-" Power Line
-" https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
-" https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-if IsPluginEnabled("powerline")
-    let g:Powerline_symbols = 'fancy'
-endif
+"" Power Line
+"" https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher
+"" https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+"" NOTE the project is deprecated and continues with powerline.
+""      I stop using this, but with the light weight airline.
+"if IsPluginEnabled("powerline")
+"    let g:Powerline_symbols = 'fancy'
+"endif
+
+" airline
+" https://github.com/bling/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 
 """""""""" FileType settings """""""""" 

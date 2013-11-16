@@ -91,3 +91,6 @@
 [submodule "bundles-available/salt-vim"]
 	path = bundles-available/salt-vim
 	url = git://github.com/saltstack/salt-vim.git
+[submodule "bundles-available/airline"]
+	path = bundles-available/airline
+	url = git://github.com/bling/vim-airline
