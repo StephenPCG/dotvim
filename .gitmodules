@@ -90,3 +90,6 @@
 [submodule "bundles-available/solarized"]
 	path = bundles-available/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundles-available/vimwiki"]
+	path = bundles-available/vimwiki
+	url = git://github.com/vimwiki/vimwiki.git
