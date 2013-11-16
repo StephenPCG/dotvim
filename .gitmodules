@@ -81,10 +81,6 @@
 [submodule "bundles-available/easymotion"]
 	path = bundles-available/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundles-available/vimwiki"]
-	path = bundles-available/vimwiki
-	url = git://github.com/vim-scripts/vimwiki.git
-	ignore = untracked
 [submodule "bundles-available/salt-vim"]
 	path = bundles-available/salt-vim
 	url = git://github.com/saltstack/salt-vim.git
