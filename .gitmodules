@@ -91,3 +91,6 @@
 [submodule "bundles-available/airline"]
 	path = bundles-available/airline
 	url = git://github.com/bling/vim-airline
+[submodule "bundles-available/solarized"]
+	path = bundles-available/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

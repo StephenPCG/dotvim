@@ -40,9 +40,7 @@ set formatoptions+=mM
 set ts=8 sts=4 sw=4 expandtab
 set vb t_vb=
 set background=dark
-colorscheme desert
-"colorscheme molokai
-"colorscheme desert-modified
+colorscheme solarized
 set noshowmode
 
 inoremap # <space>#
