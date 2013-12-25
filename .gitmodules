@@ -93,3 +93,6 @@
 [submodule "bundles-available/vimwiki"]
 	path = bundles-available/vimwiki
 	url = git://github.com/vimwiki/vimwiki.git
+[submodule "bundles-available/riv"]
+	path = bundles-available/riv
+	url = git://github.com/Rykka/riv.vim.git
