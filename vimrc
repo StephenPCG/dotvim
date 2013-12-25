@@ -45,6 +45,8 @@ set noshowmode
 
 inoremap # <space>#
 
+nnoremap <C-L> :noh<CR><C-L>
+
 set history=400  " vim default save 20 histories
 set autoread     " when file is modified outside vim, auto reload
 set mouse=
