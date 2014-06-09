@@ -1,83 +1,121 @@
 " vimrc by Stephen Zhang <StephenPCG@gmail.com>
-set nocompatible 
+set nocompatible
 set t_Co=256
 
-runtime bundles-enabled/pathogen/autoload/pathogen.vim
-call pathogen#infect('bundles-enabled/{}')
+let g:pathogen_disabled = []
+if has("lua")
+  let g:pathogen_disabled += ['neocomplcache']
+else
+  let g:pathogen_disabled += ['neocomplete']
+endif
+
+call pathogen#infect('bundles/{}')
 
 " source custom functions first, elsewhere may need them
-" this should not be silent, since we need the functions 
+" this should not be silent, since we need the functions
 "silent! source $HOME/.vim/functions.vimrc
 source $HOME/.vim/functions.vimrc
 
 """""""""" general settings """"""""""
-syntax enable
-filetype plugin on
-filetype indent on
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+if has('autocmd')
+  filetype plugin indent on
+endif
+
 set autoindent
-autocmd BufEnter * :syntax sync fromstart
-set number
-set showcmd
-set lazyredraw
-set hidden
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+set shiftround
+
+set ttimeout
+set ttimeoutlen=50
+
 set incsearch
 set hlsearch
-set smartcase
-set magic
-set showmatch
-set nobackup
-set nowb
-set lbr
-set autoindent
-set smartindent
-set cindent
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+set laststatus=2
+set ruler
+set showcmd
 set wildmenu
-"set nofen
-set fdl=3
-set formatoptions+=mM
-set ts=8 sts=4 sw=4 expandtab
-set vb t_vb=
-set background=dark
-colorscheme solarized
-set noshowmode
 
-inoremap # <space>#
-
-nnoremap <C-L> :noh<CR><C-L>
-
-set history=400  " vim default save 20 histories
-set autoread     " when file is modified outside vim, auto reload
-set mouse=
+if !&scrolloff | set scrolloff=1 | endif
+if !&sidescrolloff | set sidescrolloff=5 | endif
+set display+=lastline
 
 " encoding stuffs
 if (IsWindows())
-    let &termencoding=&encoding 
+    let &termencoding=&encoding
     set fileencodings=utf8,cp936,ucs-bom,latin1
 else
     set encoding=utf8
     set fileencodings=utf8,gb2312,gb18030,utf-16le,utf-16be,ucs-bom,latin1
 endif
 
-if IsGui()
-    set gfn="WenQuanYi Micro Hei Mono 14"
-endif
-
-" status line
-set laststatus=2
-
-" restore last position when opening a file
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
 set list
+"if &listchars ==# 'eol:$'
+"  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+"endif
 set listchars=tab:▸\ ,eol:¬
 "set listchars=tab:▸\ 
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
+
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
+
+set autoread
+set fileformats+=mac
+
+if &history < 1000 | set history=1000 | endif
+if &tabpagemax < 50 | set tabpagemax=50 | endif
+if !empty(&viminfo) | set viminfo^=! | endif
+set sessionoptions-=options
+
+" Recover form accidental Ctrl-U
+" http://vim.wikia.com/wiki/Recover_from_accidental_Ctrl-U
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+autocmd BufEnter * :syntax sync fromstart
+set number
+set lazyredraw
+set hidden
+set whichwrap+=<,>,h,l
+set smartcase
+set magic
+set showmatch
+set nobackup
+set nowb
+set lbr
+set smartindent
+set cindent
+set formatoptions+=mMj1
+set vb t_vb=
+set background=dark
+if IsPluginEnabled("solarized") | colorscheme solarized | endif
+set noshowmode
+
+inoremap # <space>#
+
+" restore last position when opening a file
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=238
-hi cursorLine cterm=NONE ctermfg=1 ctermbg=252
+hi cursorline cterm=NONE ctermfg=1 ctermbg=252
 
 set completeopt-=preview
 set completeopt+=longest
@@ -93,7 +131,9 @@ let s:PlugWinSize = 30
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 if IsPluginEnabled("tagbar")
-    let g:tagbar_width = 30
+    nmap <silent> T :TagbarToggle<cr>
+
+    let g:tagbar_width = s:PlugWinSize
 
     " vimwiki
     let g:tagbar_type_vimwiki = {
@@ -149,6 +189,9 @@ endif
 " https://github.com/scrooloose/nerdcommenter
 " no extra options here, default key binds is modified in bundles
 if IsPluginEnabled("nerdcommenter")
+    nmap <leader>cc <plug>NERDCommenterToggle
+    xmap <leader>cc <plug>NERDCommenterToggle
+
     let g:NERDCreateDefaultMappings = 0
 endif
 
@@ -156,8 +199,15 @@ endif
 " http://www.vim.org/scripts/script.php?script_id=1658
 " https://github.com/scrooloose/nerdtree
 if IsPluginEnabled("nerdtree")
+    nmap <leader>n :NERDTreeToggle<cr>
+
+    " open nerdtree if vim starts up with no files
+    autocmd vimenter * if !argc() | NERDTree | endif
+    " close vim if the only window left is nerdtree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
     let NERDTreeWinPos = "right"
-    let NERDTreeWinSize = s:PlugWinSize 
+    let NERDTreeWinSize = s:PlugWinSize
     let NERDTreeShowHidden = 0
     let NERDTreeIgnore = ['\.pyc$', '\.swp$']
     if IsPluginEnabled("netrw")
@@ -167,7 +217,11 @@ endif
 
 " Buffers Explorer
 " http://vim.sourceforge.net/scripts/script.php?script_id=42
+" https://github.com/jlanzarotta/bufexplorer
 if IsPluginEnabled("bufexplorer")
+    nmap <silent> F :BufExplorer<CR>
+
+    let g:bufExplorerDisableDefaultKeyMapping=1 " Disable mapping.
     let g:bufExplorerDefaultHelp=0       " Do not show default help.
     let g:bufExplorerShowRelativePath=1  " Show relative paths.
     let g:bufExplorerSortBy='mru'        " Sort by most recently used.
@@ -180,83 +234,35 @@ endif
 
 " Syntastic
 " https://github.com/scrooloose/syntastic
-" Rocks! 
+" Rocks!
 if IsPluginEnabled("syntastic")
     let g:syntastic_check_on_open=1
     let g:syntastic_error_symbol='✗'
     let g:syntastic_warning_symbol='⚠'
 endif
 
-" python.vim
-" http://www.vim.org/scripts/script.php?script_id=790
-if IsPluginEnabled("python")
+" python-syntax
+" https://github.com/hdima/python-syntax
+" replace for http://www.vim.org/scripts/script.php?script_id=790
+if IsPluginEnabled("python-syntax")
     let python_highlight_all = 1
 endif
 
 " nginx.vim
+" https://github.com/evanmiller/nginx-vim-syntax
 " http://www.vim.org/scripts/script.php?script_id=1886
+" Seems the plugin is maintained in nginx source contrib section since Dec 2013,
+" We should check there for updates.
 " the following configuration does no harm if filetype plugin is not enabled
-au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
-
-" snipMate
-" http://www.vim.org/scripts/script.php?script_id=2540
-" https://github.com/msanders/snipmate.vim
-
-" FuzzyFinder
-" http://www.vim.org/scripts/script.php?script_id=1984
-" https://bitbucket.org/ns9tks/vim-fuzzyfinder/
-if IsPluginEnabled("fuzzyfinder")
-    let g:fuf_dataDir = expand("~/.vim/cache/fuf-data") 
-endif
-
-" tlib (required by tSkeleton)
-" https://github.com/tomtom/tlib_vim
-
-" tSkeleton
-" http://www.vim.org/scripts/script.php?script_id=1160
-" https://github.com/tomtom/tskeleton_vim
-
-" grep.vim 
-" http://www.vim.org/scripts/script.php?script_id=311
-
-" LargeFile
-" http://www.vim.org/scripts/script.php?script_id=1506
-if IsPluginEnabled("LargeFile")
-    let g:LargeFile = 50
-endif
-
-" vimproc (required by vimshell)
-" https://github.com/Shougo/vimproc
-
-" vimshell 
-" https://github.com/Shougo/vimshell
-if IsPluginEnabled("vimshell")
-    let g:vimshell_temporary_directory = expand('~/.vim/cache/vimshell')
-    let g:vimshell_vimshrc_path = expand('~/.vim/vimshrc')
-endif
-
-" AutoComplPop
-" http://www.vim.org/scripts/script.php?script_id=1879
-" https://bitbucket.org/ns9tks/vim-autocomplpop/
-" NOTE it is disabled by neocomplcache
-"let g:AutoComplPop_Behavior = { 
-"\ 'c': [ {'command' : "\<C-x>\<C-o>",
-"\ 'pattern' : ".",
-"\ 'repeat' : 0}
-"\ ] 
-"\}
-"let g:acp_completeoptPreview = 0
-
-" OmniCppComplete (NOT INSTALLED)
-" http://www.vim.org/scripts/script.php?script_id=1520
-" with clang-complete, there is no reason to use this
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 
 " neocomplcache
 " http://www.vim.org/scripts/script.php?script_id=2620
 " https://github.com/Shougo/neocomplcache
-" Disable AutoComplPop.
 if IsPluginEnabled("neocomplcache")
+    " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
+    " Use neocomplcache
     let g:neocomplcache_enable_at_startup = 1
     " Use smartcase.
     let g:neocomplcache_enable_smart_case = 1
@@ -289,27 +295,168 @@ if IsPluginEnabled("neocomplcache")
     let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
     let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
     let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " Key bindings
+    inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><BS>  pumvisible() ? neocomplcache#smart_close_popup()."\<C-h>" : "\<BS>"
+    inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-c>  neocomplcache#cancel_popup()
 endif
+" neocomplete (non-cache version, works faster, need lua)
+" https://github.com/Shougo/neocomplete.vim.git
+if IsPluginEnabled("neocomplete")
+    " Disable AutoComplPop
+    let g:acp_enableAtStartup = 0
+    " Use neocomplete
+    let g:neocomplete#enable_at_startup = 1
+    " Use smartcase
+    let g:neocomplete#enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplete#sources#syntax#min_keyword_length = 2
+    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+    " Define dictionary.
+    let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+    " Define keyword.
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " Enable heavy omni completion.
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+      let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+    " Key bindings
+    inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><BS>  pumvisible() ? neocomplete#smart_close_popup()."\<C-h>" : "\<BS>"
+    inoremap <expr><C-y>  neocomplete#close_popup()
+    inoremap <expr><C-c>  neocomplete#cancel_popup()
+endif
+
+" neosnippet
+" https://github.com/Shougo/neosnippet.vim
+" this is just a snippet engine, snippets need to be installed seperately
+if IsPluginEnabled("neosnippet")
+    " disable default snippets, provided by: https://github.com/Shougo/neosnippet-snippets
+    let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+endif
+
+" vim-snippets
+" https://github.com/honza/vim-snippets
+if IsPluginEnabled("vim-snippets")
+    let g:neosnippet#snippets_directory=$HOME.'/.vim/bundles/vim-snippets/snippets'
+endif
+
+" OmniCppComplete (NOT INSTALLED)
+" http://www.vim.org/scripts/script.php?script_id=1520
+" with clang-complete, there is no reason to use this
+
+" snipMate
+" http://www.vim.org/scripts/script.php?script_id=2540
+" https://github.com/msanders/snipmate.vim
+" use neosnippets, no need to use this
+
+"
+" FuzzyFinder
+" http://www.vim.org/scripts/script.php?script_id=1984
+" https://bitbucket.org/ns9tks/vim-fuzzyfinder/
+if IsPluginEnabled("fuzzyfinder")
+    let g:fuf_dataDir = expand("~/.vim/cache/fuf-data")
+    nmap <leader>ff <esc>:FufFile<cr>
+    nmap <leader>fd <esc>:FufDir<cr>
+    nmap <leader>fu <esc>:FufBuffer<cr>
+    nmap <leader>ft <esc>:FufTag<cr>
+    nmap <silent> <c-\> :FufTag! <c-r>=expand('<cword>')<cr><cr>
+endif
+
+" tlib (required by tSkeleton)
+" https://github.com/tomtom/tlib_vim
+
+" tSkeleton
+" http://www.vim.org/scripts/script.php?script_id=1160
+" https://github.com/tomtom/tskeleton_vim
+
+" grep.vim
+" http://www.vim.org/scripts/script.php?script_id=311
+
+" LargeFile
+" http://www.vim.org/scripts/script.php?script_id=1506
+if IsPluginEnabled("LargeFile")
+    let g:LargeFile = 50
+endif
+
+" vimproc (required by vimshell)
+" https://github.com/Shougo/vimproc
+" NO LONGER NEEDED, SINCE WON'T USE VIMSHELL
+"if IsPluginEnabled("vimshell")
+"    map <F2> :VimShellPop -toggle<CR>
+"endif
+
+" vimshell
+" https://github.com/Shougo/vimshell
+" NO LONGER USED
+"if IsPluginEnabled("vimshell")
+"    let g:vimshell_temporary_directory = expand('~/.vim/cache/vimshell')
+"    let g:vimshell_vimshrc_path = expand('~/.vim/vimshrc')
+"endif
+
+" AutoComplPop
+" http://www.vim.org/scripts/script.php?script_id=1879
+" https://bitbucket.org/ns9tks/vim-autocomplpop/
+" NOTE it is disabled by neocomplcache
+" NOT INSTALLED
+"let g:AutoComplPop_Behavior = {
+"\ 'c': [ {'command' : "\<C-x>\<C-o>",
+"\ 'pattern' : ".",
+"\ 'repeat' : 0}
+"\ ]
+"\}
+"let g:acp_completeoptPreview = 0
+
 
 " clang-complete
 " http://www.vim.org/scripts/script.php?script_id=3302
 " https://github.com/Rip-Rip/clang_complete
 if IsPluginEnabled("clang_complete")
+    " TODO, detect clang library
+    let g:clang_use_library=1
+    let g:clang_library_path = "/usr/lib/llvm-3.3/lib/"
     let g:clang_snippets = 1
-    if IsPluginEnabled("snipmate")
-        let g:clang_snippets_engine = 'snipmate'
-    else
-        let g:clang_snippets_engine = 'clang_complete'
+    let g:clang_snippets_engine = 'clang_complete'
+    " work with noecomplete
+    if IsPluginEnabled("neocomplcache") || IsPluginEnabled("neocomplete")
+        let g:neocomplcache_force_overwrite_completefunc=1
+        let g:neocomplete#force_overwrite_completefunc=1
+        let g:clang_complete_auto=0
+        let g:clang_auto_select=0
     endif
 endif
-
-" use neocomplcache & clang_complete
-" https://github.com/osyo-manga/neocomplcache-clang_complete
-" add neocomplcache option
-let g:neocomplcache_force_overwrite_completefunc=1
-
-" add clang_complete option
-let g:clang_complete_auto=1
 
 
 " Gundo
@@ -335,35 +482,48 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+" vim-go
+" https://github.com/fatih/vim-go
+if IsPluginEnabled("go")
+    if IsPluginEnabled("neosnippet")
+        let g:go_snippet_engine = "neosnippet"
+    endif
+    "let g:go_fmt_autosave = 0
+    au FileType go nmap K <Plug>(go-doc)
+    au FileType go nmap gd <Plug>(go-def-tab)
+endif
 
-"""""""""" FileType settings """""""""" 
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" manpageview
+" https://github.com/emezeske/manpageview/blob/master/doc/manpageview.txt
+if IsPluginEnabled("manpageview")
+    let g:manpageview_winopen = "hsplit"
+endif
+
+" instant markdown
+" https://github.com/suan/vim-instant-markdown.git
+" it provides instant preview of github flavored markdown, however it depends
+" on node.js and many
+
+""""""""""" FileType settings """"""""""
 let g:tex_flavor='latex'
 autocmd FileType latex setlocal iskeyword+=:
-autocmd BufRead,BufNewFile *.vcl setlocal ft=varnish
 autocmd BufNewFile *.py TSkeletonSetup general.py
 autocmd BufNewFile *.sh TSkeletonSetup general.sh
 " always set cursor at the beginning of GIT COMMIT file
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd BufNewFile,BufRead *.as setlocal ft=actionscript
-autocmd FileType html setlocal ts=8 sts=2 sw=2 expandtab
-"""""""""" key mapping stuffs """""""""" 
+"""""""""" key mapping stuffs """"""""""
 
 let mapleader = ";"
 nmap <space> :
 vmap <space> :
 
 " quick edit .vimrc and source it automatically
-nmap <silent> <leader>ee :tabedit $MYVIMRC<cr>
-autocmd! bufwritepost *.vimrc source $MYVIMRC | call Pl#Load()
-
+"nmap <silent> <leader>ee :tabedit $MYVIMRC<cr>
+"autocmd! bufwritepost *.vimrc source $MYVIMRC | call Pl#Load()
+"
 nmap <leader>ww :w!<cr>
 nmap <C-Z> :shell<cr>
-nmap <C-X> :VimShell<cr>
 
 " navigate
 "map gf :tabnew <cfile><cr>
@@ -379,15 +539,6 @@ nmap <m-f> :Texplore<cr>
 imap <C-e> <END>
 imap <C-a> <HOME>
 
-" Auto completion
-if IsPluginEnabled("neocomplcache")
-    inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><BS> pumvisible() ? neocomplcache#smart_close_popup()."\<C-h>" : "\<BS>"
-    inoremap <expr><C-y>  neocomplcache#close_popup()
-    inoremap <expr><C-c>  neocomplcache#cancel_popup()
-endif
-
 " quick fix
 map <leader>cw :cw<cr>
 map <F3> :cp<cr>
@@ -397,21 +548,7 @@ map <F4> :cn<cr>
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 
-" plugins
-nmap <silent> T :TagbarToggle<cr>
-nmap <leader>n :NERDTreeToggle<cr>
-nmap <silent> F :BufExplorer<CR>
-
-"  fuzzy finder
-if IsPluginEnabled("fuzzyfinder")
-    nmap <leader>ff <esc>:FufFile<cr>
-    nmap <leader>fd <esc>:FufDir<cr>
-    nmap <leader>fu <esc>:FufBuffer<cr>
-    nmap <leader>ft <esc>:FufTag<cr>
-    nmap <silent> <c-\> :FufTag! <c-r>=expand('<cword>')<cr><cr>
-endif
-
-" cscope bindings 
+" cscope bindings
 if has("cscope")
     set csto=1
     set cst
@@ -440,11 +577,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-if IsPluginEnabled("nerdcommenter")
-    nmap <leader>cc <plug>NERDCommenterToggle
-    xmap <leader>cc <plug>NERDCommenterToggle
-endif
-
 " quick input
 inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
 inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
@@ -454,24 +586,10 @@ inoremap <leader>5 <><esc>:let leavechar=">"<cr>i
 inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
-" vimshell
-if IsPluginEnabled("vimshell")
-    map <F2> :VimShellPop -toggle<CR>
-endif
-
 " vimwiki
 nmap <leader>vv <Plug>VimwikiIndex
 nmap <leader>vt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [
-            \ {'path': $HOME.'/vimwiki/ppweb/wiki/',
-            \  'path_html': $HOME.'/vimwiki/ppweb/html/',
-            \  'auto_export': 1,
-            \  'template_path': $HOME.'/vimwiki/ppweb/template/',
-            \  'template_default': 'default',
-            \  'template_ext': '.html',
-            \  'css_name': 'assets/style.css',
-            \  'list_margin': 2
-            \},
             \ {'path': $HOME.'/vimwiki/personal/wiki/',
             \  'path_html': $HOME.'/vimwiki/personal/html/',
             \  'auto_export': 1,
@@ -485,9 +603,7 @@ let g:vimwiki_list = [
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_CJK_length = 1
 "let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
-
-" for golang
-autocmd FileType go setlocal noexpandtab
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
+"
 silent! source $HOME/.vim/personal.vimrc
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown

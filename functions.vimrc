@@ -49,7 +49,7 @@ function! IsRemote()
 endfunction
 
 function! IsPluginEnabled(plugin)
-    if finddir(a:plugin, expand("~/.vim/bundles-enabled/")) != ""
+    if finddir(a:plugin, expand("~/.vim/bundles/")) != "" && (index(g:pathogen_disabled, a:plugin) < 0)
         return 1 | else | return 0 | endif
 endfunction
 

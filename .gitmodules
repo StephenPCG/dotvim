@@ -1,98 +1,89 @@
-[submodule "bundles-available/l9"]
-	path = bundles-available/l9
+[submodule "bundles/l9"]
+	path = bundles/l9
 	url = git://github.com/StephenPCG/vim-l9.git
 	ignore = untracked
-[submodule "bundles-available/tlib"]
-	path = bundles-available/tlib
+[submodule "bundles/tlib"]
+	path = bundles/tlib
 	url = git://github.com/tomtom/tlib_vim.git
-[submodule "bundles-available/neocomplcache"]
-	path = bundles-available/neocomplcache
+[submodule "bundles/neocomplcache"]
+	path = bundles/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule "bundles-available/vimproc"]
-	path = bundles-available/vimproc
-	url = git://github.com/Shougo/vimproc.git
-[submodule "bundles-available/vimshell"]
-	path = bundles-available/vimshell
-	url = git://github.com/Shougo/vimshell.git
-	ignore = untracked
-[submodule "bundles-available/tagbar"]
-	path = bundles-available/tagbar
+[submodule "bundles/tagbar"]
+	path = bundles/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundles-available/nerdtree"]
-	path = bundles-available/nerdtree
+[submodule "bundles/nerdtree"]
+	path = bundles/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundles-available/clang_complete"]
-	path = bundles-available/clang_complete
+[submodule "bundles/clang_complete"]
+	path = bundles/clang_complete
 	url = git://github.com/Rip-Rip/clang_complete.git
-[submodule "bundles-available/neocomplcache-snippets-complete"]
-	path = bundles-available/neocomplcache-snippets-complete
-	url = git://github.com/Shougo/neocomplcache-snippets-complete.git
-[submodule "bundles-available/syntastic"]
-	path = bundles-available/syntastic
+[submodule "bundles/syntastic"]
+	path = bundles/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "bundles-available/snipmate"]
-	path = bundles-available/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
-	ignore = untracked
-[submodule "bundles-available/gundo"]
-	path = bundles-available/gundo
+[submodule "bundles/gundo"]
+	path = bundles/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "bundles-available/fugitive"]
-	path = bundles-available/fugitive
+[submodule "bundles/fugitive"]
+	path = bundles/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundles-available/fuzzyfinder"]
-	path = bundles-available/fuzzyfinder
+[submodule "bundles/fuzzyfinder"]
+	path = bundles/fuzzyfinder
 	url = git://github.com/StephenPCG/vim-fuzzyfinder
 	ignore = untracked
-[submodule "bundles-available/unimpaired"]
-	path = bundles-available/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundles-available/tabular"]
-	path = bundles-available/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule "bundles-available/pathogen"]
-	path = bundles-available/pathogen
+[submodule "bundles/pathogen"]
+	path = bundles/pathogen/
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "bundles-available/tskeleton"]
-	path = bundles-available/tskeleton
+[submodule "bundles/tskeleton"]
+	path = bundles/tskeleton
 	url = git://github.com/tomtom/tskeleton_vim.git
-[submodule "bundles-available/nerdcommenter"]
-	path = bundles-available/nerdcommenter
+[submodule "bundles/nerdcommenter"]
+	path = bundles/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "bundles-available/clam"]
-	path = bundles-available/clam
-	url = git://github.com/sjl/clam.vim.git
-	ignore = untracked
-[submodule "bundles-available/markdown"]
-	path = bundles-available/markdown
-	url = git://github.com/tpope/vim-markdown.git
-[submodule "bundles-available/vim-latex"]
-	path = bundles-available/vim-latex
-	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
-[submodule "bundles-available/neocomplcache-clang_complete"]
-	path = bundles-available/neocomplcache-clang_complete
-	url = git://github.com/osyo-manga/neocomplcache-clang_complete.git
-[submodule "bundles-available/markdown-jekyll"]
-	path = bundles-available/markdown-jekyll
-	url = git://github.com/PProvost/vim-markdown-jekyll.git
-[submodule "bundles-available/markdown-plasticboy"]
-	path = bundles-available/markdown-plasticboy
+[submodule "bundles/markdown-plasticboy"]
+	path = bundles/markdown-plasticboy
 	url = git://github.com/plasticboy/vim-markdown.git
-[submodule "bundles-available/easymotion"]
-	path = bundles-available/easymotion
-	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundles-available/salt-vim"]
-	path = bundles-available/salt-vim
+[submodule "bundles/salt-vim"]
+	path = bundles/salt-vim
 	url = git://github.com/saltstack/salt-vim.git
-[submodule "bundles-available/airline"]
-	path = bundles-available/airline
+[submodule "bundles/airline"]
+	path = bundles/airline
 	url = git://github.com/bling/vim-airline
-[submodule "bundles-available/solarized"]
-	path = bundles-available/solarized
+[submodule "bundles/solarized"]
+	path = bundles/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundles-available/vimwiki"]
-	path = bundles-available/vimwiki
+[submodule "bundles/vimwiki"]
+	path = bundles/vimwiki
 	url = git://github.com/vimwiki/vimwiki.git
-[submodule "bundles-available/riv"]
-	path = bundles-available/riv
+[submodule "bundles/riv"]
+	path = bundles/riv
 	url = git://github.com/Rykka/riv.vim.git
+[submodule "bundles/bufexplorer"]
+	path = bundles/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "bundles/python-syntax"]
+	path = bundles/python-syntax
+	url = https://github.com/hdima/python-syntax.git
+[submodule "bundles/nginx"]
+	path = bundles/nginx
+	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "bundles/neocomplete"]
+	path = bundles/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundles/neosnippet"]
+	path = bundles/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundles/vim-snippets"]
+	path = bundles/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "bundles/grep"]
+	path = bundles/grep
+	url = https://github.com/yegappan/grep.git
+[submodule "bundles/go"]
+	path = bundles/go
+	url = https://github.com/fatih/vim-go.git
+[submodule "bundles/manpageview"]
+	path = bundles/manpageview
+	url = https://github.com/emezeske/manpageview.git
+[submodule "bundles/vim-latex"]
+	path = bundles/vim-latex
+	url = git://git.code.sf.net/p/vim-latex/vim-latex
