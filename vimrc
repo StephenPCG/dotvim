@@ -17,6 +17,10 @@ if has("lua")
 else
   let g:pathogen_disabled += ['neocomplete']
 endif
+" disable vim-go if golang environment is not setup
+if empty($GOPATH)
+  let g:pathogen_disabled += ['go']
+endif
 
 call pathogen#infect(g:vimrcroot . 'bundles/{}')
 
