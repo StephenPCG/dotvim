@@ -11,15 +11,14 @@ exec "source " . g:vimrcroot . "functions.vimrc"
 let &runtimepath = &runtimepath . "," . g:vimrcroot
 
 " {{{1 Pathogen Settings
-let g:pathogen_disabled = []
 if has("lua")
-  let g:pathogen_disabled += ['neocomplcache']
+  call DisablePlugin('neocomplcache')
 else
-  let g:pathogen_disabled += ['neocomplete']
+  call DisablePlugin('neocomplete')
 endif
 " disable vim-go if golang environment is not setup
 if empty($GOPATH)
-  let g:pathogen_disabled += ['go']
+  call DisablePlugin('go')
 endif
 
 call pathogen#infect(g:vimrcroot . 'bundles/{}')

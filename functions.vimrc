@@ -52,6 +52,13 @@ function! IsRemote()
     " TODO judge other remote method, rsh/telnet ...
 endfunction
 
+function! DisablePlugin(plugin)
+  if !exists("g:pathogen_disabled")
+    let g:pathogen_disabled = []
+  endif
+  let g:pathogen_disabled += [a:plugin]
+endfunction
+
 function! IsPluginEnabled(plugin)
     if finddir(a:plugin, expand(g:vimrcroot . "bundles/")) != "" && (index(g:pathogen_disabled, a:plugin) < 0)
         return 1 | else | return 0 | endif
