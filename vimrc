@@ -3,6 +3,13 @@ set nocompatible
 set t_Co=256
 let mapleader = ";"
 
+" get the absolute path of the file, so this vim conf can be saved
+" anywhere and used by "vim -u /path/to/dotvim"
+let g:vimrcroot = fnamemodify(resolve(expand('<sfile>:p')), ':h') . "/"
+exec "source " . g:vimrcroot . "functions.vimrc"
+
+let &runtimepath = &runtimepath . "," . g:vimrcroot
+
 " {{{1 Pathogen Settings
 let g:pathogen_disabled = []
 if has("lua")
@@ -11,13 +18,7 @@ else
   let g:pathogen_disabled += ['neocomplete']
 endif
 
-call pathogen#infect('bundles/{}')
-
-" {{{1 Customize Helper Functions
-" source custom functions first, elsewhere may need them
-" this should not be silent, since we need the functions
-"silent! source $HOME/.vim/functions.vimrc
-source $HOME/.vim/functions.vimrc
+call pathogen#infect(g:vimrcroot . 'bundles/{}')
 
 " {{{1 General Settings
 if has('syntax') && !exists('g:syntax_on')
@@ -234,8 +235,8 @@ if IsPluginEnabled("neocomplcache")
   " Define dictionary.
   let g:neocomplcache_dictionary_filetype_lists = {
         \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell_hist',
-        \ 'scheme' : $HOME.'/.gosh_completions'
+        \ 'vimshell' : g:vimrcroot . 'cache/vimshell_hist',
+        \ 'scheme' : g:vimrcroot . 'cache/gosh_completions'
         \ }
 
   " Define keyword.
@@ -285,8 +286,8 @@ if IsPluginEnabled("neocomplete")
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell_hist',
-        \ 'scheme' : $HOME.'/.gosh_completions'
+        \ 'vimshell' : g:vimrcroot . 'cache/vimshell_hist',
+        \ 'scheme' : g:vimrcroot . 'cache/gosh_completions'
         \ }
   " Define keyword.
   if !exists('g:neocomplete#keyword_patterns')
@@ -331,7 +332,7 @@ endif
 " {{{3 vim-snippets
 " https://github.com/honza/vim-snippets
 if IsPluginEnabled("vim-snippets")
-  let g:neosnippet#snippets_directory=$HOME.'/.vim/bundles/vim-snippets/snippets'
+  let g:neosnippet#snippets_directory = g:vimrcroot . 'bundles/vim-snippets/snippets'
 endif
 
 " {{{3 fugitive
@@ -343,7 +344,7 @@ endif
 " http://www.vim.org/scripts/script.php?script_id=1984
 " https://bitbucket.org/ns9tks/vim-fuzzyfinder/
 if IsPluginEnabled("fuzzyfinder")
-  let g:fuf_dataDir = expand("~/.vim/cache/fuf-data")
+  let g:fuf_dataDir = expand(g:vimrcroot . "cache/fuf-data")
   nmap <leader>ff <esc>:FufFile<cr>
   nmap <leader>fd <esc>:FufDir<cr>
   nmap <leader>fu <esc>:FufBuffer<cr>
@@ -386,6 +387,8 @@ endif
 if IsPluginEnabled("go")
   if IsPluginEnabled("neosnippet")
     let g:go_snippet_engine = "neosnippet"
+    let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
+    "let g:go_disable_autoinstall = 1
   endif
   "let g:go_fmt_autosave = 0
   au FileType go nmap K <Plug>(go-doc)
@@ -538,7 +541,7 @@ if IsPluginEnabled("unimpaired")
 endif
 
 " {{{1 File Type Settings
-silent! source $HOME/.vim/filetype.vimrc
+call Source("filetype.vimrc")
 
 " {{{1 Key Mappings (Plugins Independant)
 
@@ -613,4 +616,4 @@ inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
 " {{{1 Sensitive Personal Settings
-silent! source $HOME/.vim/personal.vimrc
+call Source("personal.vimrc")

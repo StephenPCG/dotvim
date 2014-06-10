@@ -1,3 +1,7 @@
+if !exists(g:vimrcroot)
+  let g:vimrcroot = fnamemodify(resolve(expand('<sfile>:p')), ':h') . "/"
+endif
+
 " detect os
 " return value may be Linux/Mac/Windows
 function! DetectOS() 
@@ -49,7 +53,7 @@ function! IsRemote()
 endfunction
 
 function! IsPluginEnabled(plugin)
-    if finddir(a:plugin, expand("~/.vim/bundles/")) != "" && (index(g:pathogen_disabled, a:plugin) < 0)
+    if finddir(a:plugin, expand(g:vimrcroot . "bundles/")) != "" && (index(g:pathogen_disabled, a:plugin) < 0)
         return 1 | else | return 0 | endif
 endfunction
 
@@ -101,4 +105,8 @@ function! SetTabWidth(width)
   setlocal expandtab
   let &shiftwidth = a:width
   let &tabstop = a:width
+endfunction
+
+function! Source(file)
+  exec "silent! source" . g:vimrcroot . a:file
 endfunction
