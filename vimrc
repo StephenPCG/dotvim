@@ -504,6 +504,12 @@ endif
 " it provides instant preview of github flavored markdown, however it depends
 " on node.js and many
 
+" ag.vim
+" https://github.com/rking/ag.vim
+if IsPluginEnabled("ag")
+    let g:aghighlight=1
+endif
+
 """"""""""" FileType settings """"""""""
 let g:tex_flavor='latex'
 autocmd FileType latex setlocal iskeyword+=:

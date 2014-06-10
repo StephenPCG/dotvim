@@ -87,3 +87,6 @@
 [submodule "bundles/vim-latex"]
 	path = bundles/vim-latex
 	url = git://git.code.sf.net/p/vim-latex/vim-latex
+[submodule "bundles/ag"]
+	path = bundles/ag
+	url = https://github.com/rking/ag.vim.git
