@@ -54,6 +54,7 @@
 [submodule "bundles/vimwiki"]
 	path = bundles/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+	ignore = untracked
 [submodule "bundles/riv"]
 	path = bundles/riv
 	url = https://github.com/Rykka/riv.vim.git
