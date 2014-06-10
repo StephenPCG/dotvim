@@ -95,3 +95,10 @@ function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "g")
     return curdir
 endfunction
+
+" set tab width
+function! SetTabWidth(width)
+  setlocal expandtab
+  let &shiftwidth = a:width
+  let &tabstop = a:width
+endfunction

@@ -90,3 +90,6 @@
 [submodule "bundles/ag"]
 	path = bundles/ag
 	url = https://github.com/rking/ag.vim.git
+[submodule "bundles/unimpaired"]
+	path = bundles/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
