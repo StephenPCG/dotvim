@@ -1,5 +1,11 @@
 " Indent Python in the Google way.
 
+if exists("google_python_style")
+  finish
+endif
+let google_python_style = 1
+
+
 setlocal indentexpr=GetGooglePythonIndent(v:lnum)
 
 let s:maxoff = 50 " maximum number of lines to look backwards.
