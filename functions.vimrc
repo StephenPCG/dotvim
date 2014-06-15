@@ -117,3 +117,7 @@ endfunction
 function! Source(file)
   exec "silent! source" . g:vimrcroot . a:file
 endfunction
+
+function! SetSkeleton(suffix, temp)
+  exec "autocmd BufNewFile *." . a:suffix . " TSkeletonSetup " . g:vimrcroot . "skeletons/" . a:temp
+endfunction

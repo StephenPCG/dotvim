@@ -24,7 +24,7 @@ augroup END
 " {{{1 python
 augroup filetype_python
   autocmd!
-  autocmd BufNewFile *.py TSkeletonSetup general.py
+  call SetSkeleton("py", "general.py")
   autocmd FileType python call SetTabWidth(4)
   autocmd FileType python setlocal foldmethod=syntax
 augroup END
@@ -32,7 +32,7 @@ augroup END
 " {{{1 sh
 augroup filetype_sh
   autocmd!
-  autocmd BufNewFile *.sh TSkeletonSetup general.sh
+  call SetSkeleton("sh", "general.sh")
   autocmd FileType python call SetTabWidth(4)
 augroup END
 
