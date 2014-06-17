@@ -388,11 +388,10 @@ endif
 " {{{3 vim-go
 " https://github.com/fatih/vim-go
 if IsPluginEnabled("go")
-  if IsPluginEnabled("neosnippet")
-    let g:go_snippet_engine = "neosnippet"
-    let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
-    "let g:go_disable_autoinstall = 1
-  endif
+  " disable snippets provided by go-vim
+  let g:go_snippet_engine = ""
+  let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
+  "let g:go_disable_autoinstall = 1
   "let g:go_fmt_autosave = 0
   au FileType go nmap K <Plug>(go-doc)
   au FileType go nmap gd <Plug>(go-def-tab)
