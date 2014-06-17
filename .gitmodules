@@ -94,3 +94,6 @@
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundles/vim-snippets-salt"]
+	path = bundles/vim-snippets-salt
+	url = https://github.com/StephenPCG/vim-snippets-salt.git

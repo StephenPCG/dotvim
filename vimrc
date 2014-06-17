@@ -297,6 +297,8 @@ if IsPluginEnabled("neocomplete")
     let g:neocomplete#keyword_patterns = {}
   endif
   let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+  " set cache dir
+  let g:neocomplete#data_directory = g:vimrcroot . 'cache/neocomplete'
 
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -327,6 +329,9 @@ if IsPluginEnabled("neosnippet")
   " disable default snippets, provided by:
   " https://github.com/Shougo/neosnippet-snippets
   let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
+  let g:neosnippet#snippets_directory = []
+  let g:neosnippet#scope_aliases = {}
+  let g:neosnippet#data_directory = g:vimrcroot . 'cache/neosnippet'
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
   xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -335,7 +340,7 @@ endif
 " {{{3 vim-snippets
 " https://github.com/honza/vim-snippets
 if IsPluginEnabled("vim-snippets")
-  let g:neosnippet#snippets_directory = g:vimrcroot . 'bundles/vim-snippets/snippets'
+  let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/vim-snippets/snippets']
 endif
 
 " {{{3 fugitive
@@ -390,6 +395,7 @@ endif
 if IsPluginEnabled("go")
   " disable snippets provided by go-vim
   let g:go_snippet_engine = ""
+  let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/go/gosnippets/snippets']
   let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
   "let g:go_disable_autoinstall = 1
   "let g:go_fmt_autosave = 0
@@ -440,6 +446,13 @@ endif
 
 " {{{3 salt-vim
 " https://github.com/saltstack/salt-vim
+
+" {{{3 vim-snippets-salt
+" https://github.com/StephenPCG/vim-snippets-salt
+if IsPluginEnabled("vim-snippets-salt")
+  let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/vim-snippets-salt/snippets/']
+  let g:neosnippet#scope_aliases['sls'] = 'sls-0.17.2'
+endif
 
 " {{{3 varnish
 " https://www.varnish-cache.org/utility/vim-vcl-highlighting
