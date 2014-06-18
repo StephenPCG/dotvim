@@ -17,11 +17,19 @@ else
   call DisablePlugin('neocomplete')
 endif
 " disable vim-go if golang environment is not setup
-if empty($GOPATH)
+if empty($GOPATH) || ! executable("go")
   call DisablePlugin('go')
 endif
 
-call pathogen#infect(g:vimrcroot . 'bundles/{}')
+if IsPathogenInstalled()
+  call pathogen#infect(g:vimrcroot . 'bundles/{}')
+else
+  echo "pathogen seems not installed, will try to update submodules"
+  if UpdateSubmodules()
+    exec "runtime " . g:vimrcroot . "bundles/pathogen/autoload/pathogen.vim"
+    call pathogen#infect(g:vimrcroot . 'bundles/{}')
+  endif
+endif
 
 " {{{1 General Settings
 if has('syntax') && !exists('g:syntax_on')
@@ -112,7 +120,7 @@ set cindent
 set formatoptions+=mMj1
 set vb t_vb=
 set background=dark
-if IsPluginEnabled("solarized") | colorscheme solarized | endif
+if IsPluginEnabled("solarized") | colorscheme solarized | else | colorscheme desert | endif
 set noshowmode
 
 inoremap # <space>#

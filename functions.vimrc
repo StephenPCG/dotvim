@@ -64,6 +64,22 @@ function! IsPluginEnabled(plugin)
         return 1 | else | return 0 | endif
 endfunction
 
+function! IsPathogenInstalled()
+  if filereadable(g:vimrcroot . "bundles/pathogen/autoload/pathogen.vim")
+    return 1 | else | return 0 | endif
+endfunction
+
+function! UpdateSubmodules()
+  if executable("git")
+    echo "updating submodules ..."
+    execute "! git submodule update --init"
+    return 1
+  else
+    echo "executable 'git' not found in $PATH, not able to update submodules"
+    return 0
+  endif
+endfunction
+
 " with escalt.vim, there is no need to use this function any more
 " http://lilydjwg.is-programmer.com/posts/23574.html
 " http://lilydjwg.is-programmer.com/user_files/lilydjwg/File/escalt.vim
