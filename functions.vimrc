@@ -72,7 +72,7 @@ endfunction
 function! UpdateSubmodules()
   if executable("git")
     echo "updating submodules ..."
-    execute "! git submodule update --init"
+    execute "! cd " . g:vimrcroot . " && git submodule update --init"
     return 1
   else
     echo "executable 'git' not found in $PATH, not able to update submodules"
