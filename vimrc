@@ -263,3 +263,9 @@ endif
 " {{{3 neosnippet
 " https://github.com/Shougo/neosnippet.vim
 " Not used, using UltiSnips instead
+
+" fugitive
+" https://github.com/tpope/vim-fugitive.git
+if IsPluginEnabled("fugitive")
+  autocmd BufReadPost fugitive://* setlocal bufhidden=delete
+endif
