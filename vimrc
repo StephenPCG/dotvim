@@ -20,6 +20,11 @@ if !has("python")
   call DisablePlugin("ultisnips")
 endif
 
+" disable vim-go if go binary not found
+if !executable("go")
+  call DisablePlugin('vim-go')
+endif
+
 if IsPathogenInstalled()
   call pathogen#infect(g:vimrcroot . 'bundles/{}')
 else
@@ -296,3 +301,25 @@ endif
 " https://github.com/airblade/vim-gitgutter.git
 
 " {{{2 File Type Specific
+" {{{3 vim-go
+" https://github.com/fatih/vim-go
+if IsPluginEnabled("vim-go")
+  " disable snippets provided by go-vim
+  let g:go_snippet_engine = ""
+  let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
+  "let g:go_disable_autoinstall = 1
+  "let g:go_fmt_autosave = 0
+  au FileType go nmap K <Plug>(go-doc)
+  au FileType go nmap gd <Plug>(go-def-tab)
+  au FileType go nmap gi <Plug>(go-info)
+
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_interfaces = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+
+  let g:go_snippet_engine = "ultisnips"
+  let g:go_fmt_command = "goimports"
+endif

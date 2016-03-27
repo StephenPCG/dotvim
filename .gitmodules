@@ -82,3 +82,7 @@
 	path = bundles/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 	branch = master
+[submodule "bundles/vim-go"]
+	path = bundles/vim-go
+	url = https://github.com/fatih/vim-go.git
+	branch = master
