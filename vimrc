@@ -329,3 +329,6 @@ endif
 " https://github.com/garyburd/go-explorer.git
 if IsPluginEnabled("go-explorer")
 endif
+
+" {{{3 nginx
+" https://github.com/nginx/nginx.git  contrib/vim

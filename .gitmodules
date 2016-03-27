@@ -90,3 +90,7 @@
 	path = bundles/go-explorer
 	url = https://github.com/garyburd/go-explorer.git
 	branch = master
+[submodule "bundles/nginx-source"]
+	path = bundles/nginx-source
+	url = https://github.com/nginx/nginx.git
+	branch = master
