@@ -106,3 +106,12 @@ set completeopt+=longest
 
 " {{{1 Plugin Settings
 let s:PlugWinSize = 30
+
+" {{{2 Libraries
+" {{{3 L9 Vim script library
+" http://www.vim.org/scripts/script.php?script_id=3252
+" https://bitbucket.org/ns9tks/vim-l9/
+
+" {{{3 tlib
+" required by tSkeleton
+" https://github.com/tomtom/tlib_vim

@@ -128,14 +128,22 @@ function! SetSkeleton(suffix, temp)
   exec "autocmd BufNewFile *." . a:suffix . " TSkeletonSetup " . g:vimrcroot . "skeletons/" . a:temp
 endfunction
 
+function! ReadOrCreateFile(file)
+  if !filereadable(a:file)
+    let dirname = fnamemodify(a:file, ":h")
+    if !isdirectory(dirname)
+      call mkdir(dirname, "p")
+    endif
+    call system("touch " . a:file)
+  endif
+  return readfile(a:file)
+endfunction
+
 " warning with a message only once (across vim restart)
 function! WarnOnce(message)
   let l:warnings_file = g:vimrcroot . "cache/warnings"
-  if !filereadable(l:warnings_file)
-    call system("touch " . l:warnings_file)
-  endif
   if !exists("s:warnings")
-    let s:warnings = readfile(l:warnings_file)
+    let s:warnings = ReadOrCreateFile(l:warnings_file)
   endif
   if index(s:warnings, a:message) >= 0
     return

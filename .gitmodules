@@ -6,3 +6,7 @@
 	path = bundles/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 	branch = master
+[submodule "bundles/tlib"]
+	path = bundles/tlib
+	url = https://github.com/tomtom/tlib_vim.git
+	branch = master
