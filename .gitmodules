@@ -78,3 +78,7 @@
 	path = bundles/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 	branch = master
+[submodule "bundles/gitgutter"]
+	path = bundles/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+	branch = master

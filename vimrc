@@ -292,5 +292,7 @@ endif
 " {{{3 auto-pairs
 " https://github.com/jiangmiao/auto-pairs.git
 
-" {{{2 File Type Specific
+" {{{3 gitgutter
+" https://github.com/airblade/vim-gitgutter.git
 
+" {{{2 File Type Specific
