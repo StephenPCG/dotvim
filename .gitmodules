@@ -10,3 +10,11 @@
 	path = bundles/tlib
 	url = https://github.com/tomtom/tlib_vim.git
 	branch = master
+[submodule "bundles/airline"]
+	path = bundles/airline
+	url = https://github.com/vim-airline/vim-airline.git
+	branch = master
+[submodule "bundles/airline-themes"]
+	path = bundles/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master

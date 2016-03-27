@@ -115,3 +115,12 @@ let s:PlugWinSize = 30
 " {{{3 tlib
 " required by tSkeleton
 " https://github.com/tomtom/tlib_vim
+
+" {{{2 IDE Features
+" {{{3 airline
+" https://github.com/bling/vim-airline
+if IsPluginEnabled("airline")
+  " automatically displays all buffers when there's only one tab open
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
+endif
