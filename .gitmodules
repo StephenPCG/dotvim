@@ -18,3 +18,7 @@
 	path = bundles/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 	branch = master
+[submodule "bundles/tagbar"]
+	path = bundles/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+	branch = master

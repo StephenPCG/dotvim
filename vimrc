@@ -64,7 +64,6 @@ set list
 "  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 "endif
 set listchars=tab:▸\ ,eol:¬
-"set listchars=tab:▸\ 
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
 
@@ -123,4 +122,12 @@ if IsPluginEnabled("airline")
   " automatically displays all buffers when there's only one tab open
   let g:airline#extensions#tabline#enabled = 1
   let g:airline_powerline_fonts = 1
+endif
+
+" {{{3 Tagbar
+" http://www.vim.org/scripts/script.php?script_id=3465
+" https://github.com/majutsushi/tagbar
+if IsPluginEnabled("tagbar")
+  nmap <silent> T :TagbarToggle<cr>
+  let g:tagbar_width = s:PlugWinSize
 endif
