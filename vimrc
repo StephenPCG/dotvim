@@ -131,3 +131,13 @@ if IsPluginEnabled("tagbar")
   nmap <silent> T :TagbarToggle<cr>
   let g:tagbar_width = s:PlugWinSize
 endif
+
+" {{{3 nerdcommenter
+" http://www.vim.org/scripts/script.php?script_id=1218
+" https://github.com/scrooloose/nerdcommenter
+" no extra options here, default key binds is modified in bundles
+if IsPluginEnabled("nerdcommenter")
+  nmap <leader>cc <plug>NERDCommenterToggle
+  xmap <leader>cc <plug>NERDCommenterToggle
+  let g:NERDCreateDefaultMappings = 0
+endif

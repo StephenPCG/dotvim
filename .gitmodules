@@ -22,3 +22,7 @@
 	path = bundles/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 	branch = master
+[submodule "bundles/nerdcommenter"]
+	path = bundles/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+	branch = master
