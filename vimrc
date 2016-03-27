@@ -378,7 +378,7 @@ endif
 " {{{3 ag.vim
 " https://github.com/rking/ag.vim
 if IsPluginEnabled("ag")
-  let g:aghighlight=1
+  let g:ag_highlight=1
 endif
 
 " {{{3 gundo
