@@ -46,3 +46,11 @@
 	path = bundles/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
 	branch = master
+[submodule "bundles/ultisnips"]
+	path = bundles/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+	branch = master
+[submodule "bundles/vim-snippets"]
+	path = bundles/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+	branch = master

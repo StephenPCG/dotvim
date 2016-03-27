@@ -12,7 +12,12 @@ let &runtimepath = &runtimepath . "," . g:vimrcroot
 " {{{1 Pathogen Settings
 if !has("lua")
   call WarnOnce("Missing 'lua' support, 'neocomplete' is disabled.")
-  call DisablePlugin('neocomplete')
+  call DisablePlugin("neocomplete")
+endif
+
+if !has("python")
+  call WarnOnce("Missing 'python' support, 'ultisnips' is disabled.")
+  call DisablePlugin("ultisnips")
 endif
 
 if IsPathogenInstalled()
@@ -248,3 +253,13 @@ if IsPluginEnabled("neocomplete")
   inoremap <expr><C-y>  neocomplete#close_popup()
   inoremap <expr><C-c>  neocomplete#cancel_popup()
 endif
+
+" {{{ UltiSnips
+" https://github.com/SirVer/ultisnips.git
+
+" vim-snippets
+" https://github.com/honza/vim-snippets.git
+
+" {{{3 neosnippet
+" https://github.com/Shougo/neosnippet.vim
+" Not used, using UltiSnips instead
