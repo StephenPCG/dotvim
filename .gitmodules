@@ -58,3 +58,11 @@
 	path = vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
+[submodule "bundles/grep"]
+	path = bundles/grep
+	url = https://github.com/yegappan/grep.git
+	branch = master
+[submodule "bundle/ag"]
+	path = bundle/ag
+	url = https://github.com/rking/ag.vim.git
+	branch = master

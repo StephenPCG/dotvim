@@ -269,3 +269,13 @@ endif
 if IsPluginEnabled("fugitive")
   autocmd BufReadPost fugitive://* setlocal bufhidden=delete
 endif
+
+" {{{3 grep.vim
+" http://www.vim.org/scripts/script.php?script_id=311
+" https://github.com/yegappan/grep.git
+
+" {{{3 ag.vim
+" https://github.com/rking/ag.vim
+if IsPluginEnabled("ag")
+  let g:ag_highlight=1
+endif
