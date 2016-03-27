@@ -75,34 +75,14 @@ augroup filetype_golang
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go setlocal tabstop=8
   autocmd FileType go setlocal shiftwidth=8
-  autocmd FileType go setlocal foldmethod=syntax
+  "autocmd FileType go setlocal foldmethod=syntax
+  autocmd FileType go setlocal foldnestmax=0
 augroup END
 " require gotags: https://github.com/jstemmer/gotags
 " quick install: go get -u github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-      \ 'ctagstype' : 'go',
-      \ 'kinds'     : [
-      \ 'p:package',
-      \ 'i:imports:1',
-      \ 'c:constants',
-      \ 'v:variables',
-      \ 't:types',
-      \ 'n:interfaces',
-      \ 'w:fields',
-      \ 'e:embedded',
-      \ 'm:methods',
-      \ 'r:constructor',
-      \ 'f:functions'
-      \ ],
-      \ 'sro' : '.',
-      \ 'kind2scope' : {
-      \ 't' : 'ctype',
-      \ 'n' : 'ntype'
-      \ },
-      \ 'scope2kind' : {
-      \ 'ctype' : 't',
-      \ 'ntype' : 'n'
-      \ },
-      \ 'ctagsbin'  : 'gotags',
-      \ 'ctagsargs' : '-sort -silent'
-      \ }
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
