@@ -189,3 +189,13 @@ if IsPluginEnabled("bufexplorer")
   let g:bufExplorerUseCurrentWindow=1  " Open in new window.
   autocmd BufWinEnter \[Buf\ List\] setl nonumber
 endif
+
+" {{{3 Syntastic
+" https://github.com/scrooloose/syntastic
+" Rocks!
+if IsPluginEnabled("syntastic")
+  let g:syntastic_check_on_open=1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_error_symbol='✗'
+  let g:syntastic_warning_symbol='⚠'
+endif

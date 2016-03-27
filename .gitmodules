@@ -38,3 +38,7 @@
 	path = bundles/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
 	branch = master
+[submodule "bundles/syntastic"]
+	path = bundles/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+	branch = master
