@@ -54,10 +54,6 @@
 	path = bundles/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 	branch = master
-[submodule "vim-fugitive"]
-	path = vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-	branch = master
 [submodule "bundles/grep"]
 	path = bundles/grep
 	url = https://github.com/yegappan/grep.git
@@ -97,4 +93,8 @@
 [submodule "bundles/python-syntax"]
 	path = bundles/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+	branch = master
+[submodule "bundles/fugitive"]
+	path = bundles/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
