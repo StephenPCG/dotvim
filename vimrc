@@ -279,3 +279,8 @@ endif
 if IsPluginEnabled("ag")
   let g:ag_highlight=1
 endif
+
+" {{{3 gundo
+" http://www.vim.org/scripts/script.php?script_id=3304
+" https://github.com/sjl/gundo.vim/
+

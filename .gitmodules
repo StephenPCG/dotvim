@@ -66,3 +66,7 @@
 	path = bundle/ag
 	url = https://github.com/rking/ag.vim.git
 	branch = master
+[submodule "bundles/gundo"]
+	path = bundles/gundo
+	url = https://github.com/sjl/gundo.vim.git
+	branch = master
