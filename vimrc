@@ -284,3 +284,7 @@ endif
 " http://www.vim.org/scripts/script.php?script_id=3304
 " https://github.com/sjl/gundo.vim/
 
+" {{{3 matchit
+" http://www.vim.org/script.php?script_id=39
+" https://github.com/tmhedberg/matchit.git
+" https://github.com/vim-scripts/matchit.zip

@@ -70,3 +70,7 @@
 	path = bundles/gundo
 	url = https://github.com/sjl/gundo.vim.git
 	branch = master
+[submodule "bundles/matchit"]
+	path = bundles/matchit
+	url = https://github.com/tmhedberg/matchit.git
+	branch = master
