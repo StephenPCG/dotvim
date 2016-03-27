@@ -42,3 +42,7 @@
 	path = bundles/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 	branch = master
+[submodule "bundles/neocomplete"]
+	path = bundles/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+	branch = master
