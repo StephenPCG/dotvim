@@ -74,3 +74,7 @@
 	path = bundles/matchit
 	url = https://github.com/tmhedberg/matchit.git
 	branch = master
+[submodule "bundles/auto-pairs"]
+	path = bundles/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+	branch = master

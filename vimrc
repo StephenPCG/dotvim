@@ -288,3 +288,9 @@ endif
 " http://www.vim.org/script.php?script_id=39
 " https://github.com/tmhedberg/matchit.git
 " https://github.com/vim-scripts/matchit.zip
+
+" {{{3 auto-pairs
+" https://github.com/jiangmiao/auto-pairs.git
+
+" {{{2 File Type Specific
+
