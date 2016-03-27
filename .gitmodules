@@ -86,3 +86,7 @@
 	path = bundles/ag
 	url = https://github.com/rking/ag.vim.git
 	branch = master
+[submodule "bundles/go-explorer"]
+	path = bundles/go-explorer
+	url = https://github.com/garyburd/go-explorer.git
+	branch = master

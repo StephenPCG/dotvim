@@ -21,8 +21,9 @@ if !has("python")
 endif
 
 " disable vim-go if go binary not found
-if !executable("go")
-  call DisablePlugin('vim-go')
+if empty($GOPATH) || !executable("go")
+  call DisablePlugin("vim-go")
+  call DisablePlugin("go-explorer")
 endif
 
 if IsPathogenInstalled()
@@ -322,4 +323,9 @@ if IsPluginEnabled("vim-go")
 
   let g:go_snippet_engine = "ultisnips"
   let g:go_fmt_command = "goimports"
+endif
+
+" {{{3 go-explorer
+" https://github.com/garyburd/go-explorer.git
+if IsPluginEnabled("go-explorer")
 endif
