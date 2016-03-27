@@ -94,3 +94,7 @@
 	path = bundles/nginx-source
 	url = https://github.com/nginx/nginx.git
 	branch = master
+[submodule "bundles/python-syntax"]
+	path = bundles/python-syntax
+	url = https://github.com/hdima/python-syntax.git
+	branch = master

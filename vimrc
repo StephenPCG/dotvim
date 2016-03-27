@@ -332,3 +332,10 @@ endif
 
 " {{{3 nginx
 " https://github.com/nginx/nginx.git  contrib/vim
+
+" {{{3 python-syntax
+" https://github.com/hdima/python-syntax
+" replace for http://www.vim.org/scripts/script.php?script_id=790
+if IsPluginEnabled("python-syntax")
+  let python_highlight_all = 1
+endif
