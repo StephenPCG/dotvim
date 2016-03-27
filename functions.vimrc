@@ -50,6 +50,9 @@ function! DisablePlugin(plugin)
 endfunction
 
 function! IsPluginEnabled(plugin)
+  if !exists("g:pathogen_disabled")
+    let g:pathogen_disabled = []
+  endif
   return finddir(a:plugin, expand(g:vimrcroot . "bundles/")) != "" && (index(g:pathogen_disabled, a:plugin) < 0)
 endfunction
 
@@ -123,4 +126,21 @@ endfunction
 
 function! SetSkeleton(suffix, temp)
   exec "autocmd BufNewFile *." . a:suffix . " TSkeletonSetup " . g:vimrcroot . "skeletons/" . a:temp
+endfunction
+
+" warning with a message only once (across vim restart)
+function! WarnOnce(message)
+  let l:warnings_file = g:vimrcroot . "cache/warnings"
+  if !filereadable(l:warnings_file)
+    call system("touch " . l:warnings_file)
+  endif
+  if !exists("s:warnings")
+    let s:warnings = readfile(l:warnings_file)
+  endif
+  if index(s:warnings, a:message) >= 0
+    return
+  endif
+  call add(s:warnings, a:message)
+  call writefile([a:message], l:warnings_file, "a")
+  echo a:message
 endfunction

@@ -2,3 +2,7 @@
 	path = bundles/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 	branch = master
+[submodule "bundles/solarized"]
+	path = bundles/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+	branch = master
