@@ -34,3 +34,7 @@
 	path = bundles/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 	branch = master
+[submodule "bundles/bufexplorer"]
+	path = bundles/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
+	branch = master

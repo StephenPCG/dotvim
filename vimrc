@@ -172,3 +172,20 @@ endif
 
 " {{{3 netrw
 " http://www.vim.org/scripts/script.php?script_id=1075
+
+" {{{3 Buffers Explorer
+" http://vim.sourceforge.net/scripts/script.php?script_id=42
+" https://github.com/jlanzarotta/bufexplorer
+if IsPluginEnabled("bufexplorer")
+  nmap <silent> F :BufExplorer<CR>
+
+  let g:bufExplorerDisableDefaultKeyMapping=1 " Disable mapping.
+  let g:bufExplorerDefaultHelp=0       " Do not show default help.
+  let g:bufExplorerShowRelativePath=1  " Show relative paths.
+  let g:bufExplorerSortBy='mru'        " Sort by most recently used.
+  let g:bufExplorerSplitRight=0        " Split left.
+  let g:bufExplorerSplitVertical=1     " Split vertically.
+  let g:bufExplorerSplitVertSize = s:PlugWinSize  " Split width
+  let g:bufExplorerUseCurrentWindow=1  " Open in new window.
+  autocmd BufWinEnter \[Buf\ List\] setl nonumber
+endif
