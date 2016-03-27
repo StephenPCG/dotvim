@@ -141,3 +141,34 @@ if IsPluginEnabled("nerdcommenter")
   xmap <leader>cc <plug>NERDCommenterToggle
   let g:NERDCreateDefaultMappings = 0
 endif
+
+" {{{3 nerdtree
+" http://www.vim.org/scripts/script.php?script_id=1658
+" https://github.com/scrooloose/nerdtree
+if IsPluginEnabled("nerdtree")
+  nmap <leader>n :NERDTreeToggle<cr>
+
+  " open nerdtree if vim starts up with no files, but not focus on it
+  augroup OpenNerdTree
+    autocmd!
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  augroup END
+  " close vim if the only window left is nerdtree
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+  let NERDTreeWinPos = "right"
+  let NERDTreeWinSize = s:PlugWinSize
+  let NERDTreeShowHidden = 0
+  let NERDTreeIgnore = ['\.pyc$', '\.swp$']
+  if IsPluginEnabled("netrw")
+    let NERDTreeHijackNetrw = 0
+  endif
+endif
+
+" {{{3 nerdtree-git-plugin
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+" Displays git flags in nerdtree
+
+" {{{3 netrw
+" http://www.vim.org/scripts/script.php?script_id=1075
