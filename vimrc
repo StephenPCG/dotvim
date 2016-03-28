@@ -60,6 +60,7 @@ if !&scrolloff | set scrolloff=1 | endif
 if !&sidescrolloff | set sidescrolloff=5 | endif
 set display+=lastline
 set autoread
+set updatetime=250
 
 " encoding stuffs
 if (IsWindows())
@@ -162,8 +163,8 @@ if IsPluginEnabled("nerdtree")
   " open nerdtree if vim starts up with no files, but not focus on it
   augroup OpenNerdTree
     autocmd!
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    autocmd VimEnter * if !argc() | NERDTree | endif
+    autocmd VimEnter * if !argc() | wincmd p | endif
   augroup END
   " close vim if the only window left is nerdtree
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -300,6 +301,9 @@ endif
 
 " {{{3 gitgutter
 " https://github.com/airblade/vim-gitgutter.git
+if IsPluginEnabled("gitgutter")
+  let g:gitgutter_map_keys = 0
+endif
 
 " {{{2 File Type Specific
 " {{{3 vim-go
