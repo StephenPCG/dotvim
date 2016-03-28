@@ -365,6 +365,17 @@ endif
 if IsPluginEnabled("clang_complete")
 endif
 
+" {{{3 salt-vim
+" https://github.com/saltstack/salt-vim
+
+" {{{3 vim-snippets-salt
+" https://github.com/StephenPCG/vim-snippets-salt
+" XXX since we currently switched to UltiSnips, this is not used
+if IsPluginEnabled("vim-snippets-salt")
+  let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/vim-snippets-salt/snippets/']
+  let g:neosnippet#scope_aliases['sls'] = 'sls-0.17.2'
+endif
+
 " {{{1 File Type Settings
 call Source("filetype.vimrc")
 
