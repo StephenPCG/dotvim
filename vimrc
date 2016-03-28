@@ -344,6 +344,13 @@ if IsPluginEnabled("python-syntax")
   let python_highlight_all = 1
 endif
 
+" {{{3 tSkeleton
+" http://www.vim.org/scripts/script.php?script_id=1160
+" https://github.com/tomtom/tskeleton_vim
+
+" {{{1 File Type Settings
+call Source("filetype.vimrc")
+
 " {{{1 Key Mappings (Plugins Independant)
 
 nmap <space> :

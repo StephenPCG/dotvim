@@ -98,3 +98,7 @@
 	path = bundles/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
+[submodule "bundles/tskeleton"]
+	path = bundles/tskeleton
+	url = https://github.com/tomtom/tskeleton_vim.git
+	branch = master
