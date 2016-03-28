@@ -126,3 +126,7 @@
 	path = bundles/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 	branch = master
+[submodule "bundles/riv"]
+	path = bundles/riv
+	url = https://github.com/Rykka/riv.vim.git
+	branch = master

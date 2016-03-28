@@ -378,6 +378,13 @@ endif
 
 " {{{3 markdown-plasticboy
 " https://github.com/plasticboy/vim-markdown
+if IsPluginEnabled('markdown')
+  let g:vim_markdown_folding_disabled = 1
+  let g:vim_markdown_no_default_key_mappings = 1
+endif
+
+" {{{3 riv (reStructuredText)
+" https://github.com/Rykka/riv.vim
 
 " {{{2 Misc
 " {{{3 LargeFile
