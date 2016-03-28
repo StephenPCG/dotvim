@@ -339,3 +339,47 @@ endif
 if IsPluginEnabled("python-syntax")
   let python_highlight_all = 1
 endif
+
+" {{{1 Key Mappings (Plugins Independant)
+
+nmap <space> :
+vmap <space> :
+
+" quick edit .vimrc and source it automatically
+"nmap <silent> <leader>ee :tabedit $MYVIMRC<cr>
+"autocmd! bufwritepost *.vimrc source $MYVIMRC | call Pl#Load()
+
+nmap <leader>ww :w!<cr>
+nmap <C-Z> :shell<cr>
+
+" navigate
+"map gf :tabnew <cfile><cr>
+nn <c-n> :bn<cr>
+nn <c-h> :bp<cr>
+nmap <m-n> :tabnext<cr>
+nmap <m-h> :tabprevious<cr>
+nmap <m-d> :tabclose<cr>
+nmap <m-t> :tabnew<cr>
+nmap <m-f> :Texplore<cr>
+
+" Bash(Emacs) key binding
+imap <C-e> <END>
+imap <C-a> <HOME>
+
+" quick fix
+map <leader>cw :cw<cr>
+map <F3> :cp<cr>
+map <F4> :cn<cr>
+
+" search
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+" quick input
+"inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
+"inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
+"inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
+"inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
+"inoremap <leader>5 <><esc>:let leavechar=">"<cr>i
+"inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
+"inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
