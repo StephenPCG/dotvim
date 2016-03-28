@@ -386,6 +386,17 @@ endif
 " {{{3 escalt
 " https://github.com/lilydjwg/dotvim/blob/master/plugin/escalt.vim
 
+" {{{3 unimpaired
+" https://github.com/tpope/vim-unimpaired
+if IsPluginEnabled("unimpaired")
+  " Bubble single lines
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+  " Bubble multiple lines
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
+endif
+
 " {{{1 File Type Settings
 call Source("filetype.vimrc")
 

@@ -114,3 +114,7 @@
 	path = bundles/vim-snippets-salt
 	url = https://github.com/StephenPCG/vim-snippets-salt.git
 	branch = master
+[submodule "bundles/unimpaired"]
+	path = bundles/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+	branch = master
