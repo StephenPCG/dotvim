@@ -383,6 +383,9 @@ if IsPluginEnabled("LargeFile")
   let g:LargeFile = 50
 endif
 
+" {{{3 escalt
+" https://github.com/lilydjwg/dotvim/blob/master/plugin/escalt.vim
+
 " {{{1 File Type Settings
 call Source("filetype.vimrc")
 
