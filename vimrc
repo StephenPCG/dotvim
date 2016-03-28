@@ -386,6 +386,12 @@ endif
 " {{{3 riv (reStructuredText)
 " https://github.com/Rykka/riv.vim
 
+" {{{3 manpageview
+" https://github.com/emezeske/manpageview/blob/master/doc/manpageview.txt
+if IsPluginEnabled("manpageview")
+  let g:manpageview_winopen = "hsplit"
+endif
+
 " {{{2 Misc
 " {{{3 LargeFile
 " http://www.vim.org/scripts/script.php?script_id=1506

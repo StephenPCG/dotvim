@@ -130,3 +130,7 @@
 	path = bundles/riv
 	url = https://github.com/Rykka/riv.vim.git
 	branch = master
+[submodule "bundles/manpageview"]
+	path = bundles/manpageview
+	url = https://github.com/emezeske/manpageview.git
+	branch = master
