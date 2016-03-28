@@ -108,6 +108,10 @@ set background=dark
 if IsPluginEnabled("solarized") | colorscheme solarized | else | colorscheme desert | endif
 set noshowmode
 
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
+
 hi SpecialKey ctermfg=238
 hi NonText ctermfg=238
 hi cursorline cterm=NONE ctermfg=1 ctermbg=252
@@ -142,6 +146,10 @@ endif
 if IsPluginEnabled("tagbar")
   nmap <silent> T :TagbarToggle<cr>
   let g:tagbar_width = s:PlugWinSize
+  let g:tagbar_left = 1
+  let g:tagbar_iconchars = ['▸', '▾']
+  let g:tagbar_compact = 1
+  let g:tagbar_foldlevel = 99
 endif
 
 " {{{3 nerdcommenter
