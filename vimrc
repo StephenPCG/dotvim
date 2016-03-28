@@ -376,6 +376,13 @@ if IsPluginEnabled("vim-snippets-salt")
   let g:neosnippet#scope_aliases['sls'] = 'sls-0.17.2'
 endif
 
+" {{{2 Misc
+" {{{3 LargeFile
+" http://www.vim.org/scripts/script.php?script_id=1506
+if IsPluginEnabled("LargeFile")
+  let g:LargeFile = 50
+endif
+
 " {{{1 File Type Settings
 call Source("filetype.vimrc")
 
