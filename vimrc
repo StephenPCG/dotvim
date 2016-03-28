@@ -26,6 +26,9 @@ if empty($GOPATH) || !executable("go")
   call DisablePlugin("go-explorer")
 endif
 
+" disable clang-complete, not configured properly
+call DisablePlugin("clang_complete")
+
 if IsPathogenInstalled()
   call pathogen#infect(g:vimrcroot . 'bundles/{}')
 else
@@ -355,6 +358,12 @@ endif
 " {{{3 tSkeleton
 " http://www.vim.org/scripts/script.php?script_id=1160
 " https://github.com/tomtom/tskeleton_vim
+
+" {{{3 clang-complete
+" http://www.vim.org/scripts/script.php?script_id=3302
+" https://github.com/Rip-Rip/clang_complete
+if IsPluginEnabled("clang_complete")
+endif
 
 " {{{1 File Type Settings
 call Source("filetype.vimrc")

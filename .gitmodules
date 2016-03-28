@@ -102,3 +102,7 @@
 	path = bundles/tskeleton
 	url = https://github.com/tomtom/tskeleton_vim.git
 	branch = master
+[submodule "bundles/clang_complete"]
+	path = bundles/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
+	branch = master
