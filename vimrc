@@ -371,7 +371,7 @@ endif
 " {{{3 vim-snippets-salt
 " https://github.com/StephenPCG/vim-snippets-salt
 " XXX since we currently switched to UltiSnips, this is not used
-if IsPluginEnabled("vim-snippets-salt")
+if IsPluginEnabled("vim-snippets-salt") && IsPluginEnabled("neosnippet")
   let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/vim-snippets-salt/snippets/']
   let g:neosnippet#scope_aliases['sls'] = 'sls-0.17.2'
 endif
@@ -395,6 +395,17 @@ if IsPluginEnabled("unimpaired")
   " Bubble multiple lines
   vmap <C-Up> [egv
   vmap <C-Down> ]egv
+endif
+
+" {{{3 ctrlp
+" https://github.com/kien/ctrlp.vim.git
+if IsPluginEnabled("ctrlp")
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(o|pyc|exe|so|dll)$',
+    \ }
 endif
 
 " {{{1 File Type Settings
