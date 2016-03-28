@@ -316,6 +316,9 @@ if IsPluginEnabled("gitgutter")
   let g:gitgutter_map_keys = 0
 endif
 
+" {{{3 virtualenv
+" https://github.com/jmcantrell/vim-virtualenv.git
+
 " {{{2 File Type Specific
 " {{{3 vim-go
 " https://github.com/fatih/vim-go

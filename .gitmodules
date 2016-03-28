@@ -134,3 +134,7 @@
 	path = bundles/manpageview
 	url = https://github.com/emezeske/manpageview.git
 	branch = master
+[submodule "bundles/virtualenv"]
+	path = bundles/virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git
+	branch = master
