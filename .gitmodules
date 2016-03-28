@@ -122,3 +122,7 @@
 	path = bundles/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 	branch = master
+[submodule "bundles/markdown"]
+	path = bundles/markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+	branch = master

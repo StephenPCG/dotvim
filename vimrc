@@ -376,6 +376,9 @@ if IsPluginEnabled("vim-snippets-salt") && IsPluginEnabled("neosnippet")
   let g:neosnippet#scope_aliases['sls'] = 'sls-0.17.2'
 endif
 
+" {{{3 markdown-plasticboy
+" https://github.com/plasticboy/vim-markdown
+
 " {{{2 Misc
 " {{{3 LargeFile
 " http://www.vim.org/scripts/script.php?script_id=1506
