@@ -24,10 +24,18 @@ endif
 if empty($GOPATH) || !executable("go")
   call DisablePlugin("vim-go")
   call DisablePlugin("go-explorer")
+else
+  let g:go_bin_path = g:vimrcroot . "cache/vim-go"
+  let $PATH = $PATH . ":" . g:go_bin_path
+  if !executable("getool")
+    call WarnOnce("Go tools not installed, you should install go tools with: 'call InstallGolangTools(-1)'")
+  endif
 endif
 
 " disable clang-complete, not configured properly
 call DisablePlugin("clang_complete")
+" disable manpageview, this caused GoDoc mapping not working
+call DisablePlugin("manpageview")
 
 if IsPathogenInstalled()
   call pathogen#infect(g:vimrcroot . 'bundles/{}')
@@ -119,7 +127,7 @@ hi SpecialKey ctermfg=238
 hi NonText ctermfg=238
 hi cursorline cterm=NONE ctermfg=1 ctermbg=252
 
-"set completeopt-=preview
+set completeopt-=preview
 set completeopt+=longest
 
 " {{{1 Plugin Settings
@@ -340,7 +348,6 @@ if IsPluginEnabled("vim-go")
   let g:go_highlight_build_constraints = 1
 
   let g:go_snippet_engine = "ultisnips"
-  let g:go_fmt_command = "goimports"
 endif
 
 " {{{3 go-explorer
