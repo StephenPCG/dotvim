@@ -425,6 +425,8 @@ nmap <m-f> :Texplore<cr>
 " Bash(Emacs) key binding
 imap <C-e> <END>
 imap <C-a> <HOME>
+cmap <C-e> <END>
+cmap <C-a> <HOME>
 
 " quick fix
 map <leader>cw :cw<cr>
