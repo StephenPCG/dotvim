@@ -36,6 +36,7 @@ endif
 call DisablePlugin("clang_complete")
 " disable manpageview, this caused GoDoc mapping not working
 call DisablePlugin("manpageview")
+call DisablePlugin("LargeFile")
 
 if IsPathogenInstalled()
   call pathogen#infect(g:vimrcroot . 'bundles/{}')
