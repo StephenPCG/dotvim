@@ -2,7 +2,9 @@
 
 ### Install
 
-    $ git clone --recursive https://github.com/StephenPCG/dotvim.git
+    $ git clone https://github.com/StephenPCG/dotvim.git
+    $ git submodule init
+    $ git submodule update --depth 1
 
 create a link to $HOME/.vim:
 
@@ -12,3 +14,11 @@ create a link to $HOME/.vim:
 or use temporarily:
 
     $ vim -u /path/to/dotvim/vimrc [files ...]
+
+### Dependencies
+
+    * pyflakes
+    * pylint
+    * the\_silver\_searcher (brew), silversearcher-ag (apt-get)
+    * :call InstallGolangTools(-1)
+    * ctags (brew), exuberant-ctags (apt-get)
