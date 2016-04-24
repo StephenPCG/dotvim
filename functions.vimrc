@@ -54,7 +54,7 @@ endfunction
 function! DisablePluginIf(plugin, condition, message)
   if a:condition
     if a:message | echomsg a:message | endif
-    DisablePlugin(a:plugin)
+    call DisablePlugin(a:plugin)
   endif
 endfunction
 
