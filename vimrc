@@ -188,6 +188,14 @@ endif
 " netrw
 " http://www.vim.org/scripts/script.php?script_id=1075
 
+" vim-indent-guides
+" https://github.com/nathanaelkane/vim-indent-guides
+if IsPluginEnabled("vim-indent-guides")
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_default_mapping = 0
+  nmap <silent> H :IndentGuidesToggle<cr>
+endif
+
 " Buffers Explorer
 " http://vim.sourceforge.net/scripts/script.php?script_id=42
 " https://github.com/jlanzarotta/bufexplorer
@@ -262,6 +270,15 @@ if IsPluginEnabled("fugitive")
   autocmd BufReadPost fugitive://* setlocal bufhidden=delete
 endif
 
+" gitgutter
+" https://github.com/airblade/vim-gitgutter.git
+if IsPluginEnabled("gitgutter")
+  let g:gitgutter_map_keys = 0
+endif
+
+" virtualenv
+" https://github.com/jmcantrell/vim-virtualenv.git
+
 " tSkeleton
 " http://www.vim.org/scripts/script.php?script_id=1160
 " https://github.com/tomtom/tskeleton_vim
@@ -306,6 +323,11 @@ if IsPluginEnabled("vim-go")
   "let g:go_fmt_autosave = 0
   au FileType go nmap K <Plug>(go-doc)
   au FileType go nmap gd <Plug>(go-def-tab)
+endif
+
+" go-explorer
+" https://github.com/garyburd/go-explorer.git
+if IsPluginEnabled("go-explorer")
 endif
 
 " python-syntax

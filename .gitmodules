@@ -58,3 +58,19 @@
 [submodule "bundles/tskeleton"]
 	path = bundles/tskeleton
 	url = https://github.com/tomtom/tskeleton_vim.git
+[submodule "bundles/gitgutter"]
+	path = bundles/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+	branch = master
+[submodule "bundles/virtualenv"]
+	path = bundles/virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git
+	branch = master
+[submodule "bundles/go-explorer"]
+	path = bundles/go-explorer
+	url = https://github.com/garyburd/go-explorer.git
+	branch = master
+[submodule "bundles/vim-indent-guides"]
+	path = bundles/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides
+	branch = master
