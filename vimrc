@@ -310,6 +310,9 @@ if IsPluginEnabled("unimpaired")
   vmap <C-Down> ]egv
 endif
 
+" vim-better-whitespace
+" https://github.com/ntpeters/vim-better-whitespace.git
+
 """ Language related plugins
 
 " vim-go

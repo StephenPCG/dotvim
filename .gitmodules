@@ -1,63 +1,83 @@
 [submodule "bundles/tlib"]
 	path = bundles/tlib
 	url = https://github.com/tomtom/tlib_vim.git
+	branch = master
 [submodule "bundles/airline"]
 	path = bundles/airline
 	url = https://github.com/bling/vim-airline.git
+	branch = master
 [submodule "bundles/airline-themes"]
 	path = bundles/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master
 [submodule "bundles/tagbar"]
 	path = bundles/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+	branch = master
 [submodule "bundles/nerdcommenter"]
 	path = bundles/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+	branch = master
 [submodule "bundles/nerdtree-git-plugin"]
 	path = bundles/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+	branch = master
 [submodule "bundles/bufexplorer"]
 	path = bundles/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
+	branch = master
 [submodule "bundles/syntastic"]
 	path = bundles/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+	branch = master
 [submodule "bundles/neocomplete"]
 	path = bundles/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+	branch = master
 [submodule "bundles/fugitive"]
 	path = bundles/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+	branch = master
 [submodule "bundles/ag"]
 	path = bundles/ag
 	url = https://github.com/rking/ag.vim
+	branch = master
 [submodule "bundles/gundo"]
 	path = bundles/gundo
 	url = https://github.com/sjl/gundo.vim
+	branch = master
 [submodule "bundles/nerdtree"]
 	path = bundles/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+	branch = master
 [submodule "bundles/pathogen"]
 	path = bundles/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+	branch = master
 [submodule "bundles/solarized"]
 	path = bundles/solarized
 	url = https://github.com/altercation/vim-colors-solarized
+	branch = master
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = https://github.com/tpope/vim-unimpaired
+	branch = master
 [submodule "bundles/vim-go"]
 	path = bundles/vim-go
 	url = https://github.com/fatih/vim-go.git
+	branch = master
 [submodule "bundles/nginx-source"]
 	path = bundles/nginx-source
 	url = https://github.com/nginx/nginx.git
+	branch = master
 [submodule "bundles/salt"]
 	path = bundles/salt
 	url = https://github.com/saltstack/salt-vim
+	branch = master
 [submodule "bundles/tskeleton"]
 	path = bundles/tskeleton
 	url = https://github.com/tomtom/tskeleton_vim.git
+	branch = master
 [submodule "bundles/gitgutter"]
 	path = bundles/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
@@ -73,4 +93,8 @@
 [submodule "bundles/vim-indent-guides"]
 	path = bundles/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
+	branch = master
+[submodule "bundles/vim-better-whitespace"]
+	path = bundles/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace.git
 	branch = master
