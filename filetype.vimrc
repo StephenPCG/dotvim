@@ -26,7 +26,6 @@ augroup filetype_python
   autocmd!
   call SetSkeleton("py", "general.py")
   autocmd FileType python call SetTabWidth(4)
-  autocmd FileType python setlocal foldmethod=syntax
 augroup END
 
 " {{{1 sh
@@ -68,3 +67,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" {{{1 sql server
+augroup filetype_sql_server
+  autocmd!
+  autocmd BufNewFile,BufRead *.mssql set filetype=sqlserver
+  autocmd FileType sqlserver call SetTabWidth(4)
+augroup END
