@@ -28,11 +28,17 @@ augroup filetype_python
   autocmd FileType python call SetTabWidth(4)
 augroup END
 
+" {{{1 lua
+augroup filetype_lua
+  autocmd!
+  autocmd FileType lua call SetTabWidth(4)
+augroup END
+
 " {{{1 sh
 augroup filetype_sh
   autocmd!
   call SetSkeleton("sh", "general.sh")
-  autocmd FileType python call SetTabWidth(4)
+  autocmd FileType sh call SetTabWidth(4)
 augroup END
 
 " {{{1 git commit
