@@ -368,6 +368,10 @@ nn <c-h> :bp<cr>
 "nmap <m-d> :tabclose<cr>
 "nmap <m-t> :tabnew<cr>
 "nmap <m-f> :Texplore<cr>
+nmap <m-j> <c-w>j
+nmap <m-k> <c-w>k
+nmap <m-h> <c-w>h
+nmap <m-l> <c-w>l
 map <leader>cw :cw<cr>
 map <F3> :cp<cr>
 map <F4> :cn<cr>
