@@ -3,7 +3,6 @@
 " {{{1 vim
 augroup filetype_vim
   autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim call SetTabWidth(2)
 augroup END
 
@@ -79,4 +78,12 @@ augroup filetype_sql_server
   autocmd!
   autocmd BufNewFile,BufRead *.mssql set filetype=sqlserver
   autocmd FileType sqlserver call SetTabWidth(4)
+augroup END
+
+" {{{1 web
+augroup filetype_web
+  autocmd!
+  autocmd FileType html call SetTabWidth(2)
+  autocmd FileType css call SetTabWidth(2)
+  autocmd FileType javascript call SetTabWidth(4)
 augroup END
