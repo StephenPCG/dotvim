@@ -87,3 +87,9 @@ augroup filetype_web
   autocmd FileType css call SetTabWidth(2)
   autocmd FileType javascript call SetTabWidth(4)
 augroup END
+
+" {{{1 yaml
+augroup filetype_yaml
+  autocmd!
+  autocmd FileType yaml call SetTabWidth(2)
+augroup END
