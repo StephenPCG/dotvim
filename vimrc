@@ -313,6 +313,14 @@ endif
 " vim-better-whitespace
 " https://github.com/ntpeters/vim-better-whitespace.git
 
+" vim-table-mode
+" https://github.com/dhruvasagar/vim-table-mode
+if IsPluginEnabled("vim-table-mode")
+  let g:table_mode_corner_corner = "+"
+  let g:table_mode_header_fillchar = "="
+  let g:table_mode_align_char = ":"
+endif
+
 """ Language related plugins
 
 " vim-go

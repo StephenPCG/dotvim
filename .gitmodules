@@ -102,3 +102,7 @@
 	path = bundles/toml
 	url = https://github.com/cespare/vim-toml.git
 	branch = master
+[submodule "bundles/vim-table-mode"]
+	path = bundles/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
+	branch = master
