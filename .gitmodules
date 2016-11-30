@@ -106,3 +106,7 @@
 	path = bundles/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
 	branch = master
+[submodule "bundles/vim-bracketed-paste"]
+	path = bundles/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+	branch = master
