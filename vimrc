@@ -54,6 +54,8 @@ set updatetime=250
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# '' | nnoremap <silent> <C-L> :nohlsearch<CR><C-L> | endif
 
+set path=.,/usr/include,,**
+
 " encoding stuffs
 if (IsWindows())
   let &termencoding=&encoding
