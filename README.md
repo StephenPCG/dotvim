@@ -2,9 +2,7 @@
 
 ### Install
 
-    $ git clone https://github.com/StephenPCG/dotvim.git
-    $ git submodule init
-    $ git submodule update --depth 1
+    $ git clone --recursive https://github.com/StephenPCG/dotvim.git
 
 create a link to $HOME/.vim:
 
