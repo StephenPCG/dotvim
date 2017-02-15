@@ -142,3 +142,7 @@
 	path = bundles/ale
 	url = https://github.com/w0rp/ale.git
 	branch = master
+[submodule "bundles/vim-emoji"]
+	path = bundles/vim-emoji
+	url = https://github.com/junegunn/vim-emoji.git
+	branch = master
