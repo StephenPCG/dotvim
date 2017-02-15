@@ -138,3 +138,7 @@
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
 	branch = master
 	shallow = true
+[submodule "bundles/ale"]
+	path = bundles/ale
+	url = https://github.com/w0rp/ale.git
+	branch = master

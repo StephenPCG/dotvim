@@ -12,6 +12,10 @@ let &runtimepath = &runtimepath . "," . g:vimrcroot
 call DisablePluginIf("neocomplete", !has("lua"), "Missing 'lua' support, 'neocomplete' is disabled.")
 call DisablePluginIf("ultisnips", !has("python"), "Missing 'python' support, 'ultisnips' is disabled.")
 
+if v:version < 800
+  call DisablePlugin("ale")
+endif
+
 " disable vim-go if go binary not found
 if empty($GOPATH) || !executable("go")
   call DisablePlugin("vim-go")
@@ -223,6 +227,21 @@ if IsPluginEnabled("syntastic")
   let g:syntastic_check_on_wq = 0
   let g:syntastic_error_symbol='✗'
   let g:syntastic_warning_symbol='⚠'
+endif
+
+" ALE
+" https://github.com/w0rp/ale
+if IsPluginEnabled("ale")
+  let g:ale_sign_error = '✗'
+  let g:ale_sign_warning = '⚠'
+  let g:ale_statusline_format = ['✗ %d', '⚠ %d', 'OK']
+  let g:ale_echo_msg_format = '[#%linter%#] %severity% %s '
+  let g:ale_echo_msg_error_str = '✗'
+  let g:ale_echo_msg_warning_str = '⚠'
+
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  let g:ale_open_list = 0
 endif
 
 " neocomplete
