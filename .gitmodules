@@ -2,142 +2,114 @@
 	path = bundles/tlib
 	url = https://github.com/tomtom/tlib_vim.git
 	branch = master
-	shallow = true
 [submodule "bundles/airline"]
 	path = bundles/airline
 	url = https://github.com/bling/vim-airline.git
 	branch = master
-	shallow = true
 [submodule "bundles/airline-themes"]
 	path = bundles/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 	branch = master
-	shallow = true
 [submodule "bundles/tagbar"]
 	path = bundles/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 	branch = master
-	shallow = true
 [submodule "bundles/nerdcommenter"]
 	path = bundles/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 	branch = master
-	shallow = true
 [submodule "bundles/nerdtree-git-plugin"]
 	path = bundles/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 	branch = master
-	shallow = true
 [submodule "bundles/bufexplorer"]
 	path = bundles/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
 	branch = master
-	shallow = true
 [submodule "bundles/syntastic"]
 	path = bundles/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 	branch = master
-	shallow = true
 [submodule "bundles/neocomplete"]
 	path = bundles/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
 	branch = master
-	shallow = true
 [submodule "bundles/fugitive"]
 	path = bundles/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
-	shallow = true
 [submodule "bundles/ag"]
 	path = bundles/ag
 	url = https://github.com/rking/ag.vim
 	branch = master
-	shallow = true
 [submodule "bundles/gundo"]
 	path = bundles/gundo
 	url = https://github.com/sjl/gundo.vim
 	branch = master
-	shallow = true
 [submodule "bundles/nerdtree"]
 	path = bundles/nerdtree
 	url = https://github.com/scrooloose/nerdtree
 	branch = master
-	shallow = true
 [submodule "bundles/pathogen"]
 	path = bundles/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 	branch = master
-	shallow = true
 [submodule "bundles/solarized"]
 	path = bundles/solarized
 	url = https://github.com/altercation/vim-colors-solarized
 	branch = master
-	shallow = true
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = https://github.com/tpope/vim-unimpaired
 	branch = master
-	shallow = true
 [submodule "bundles/vim-go"]
 	path = bundles/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
-	shallow = true
 [submodule "bundles/nginx-source"]
 	path = bundles/nginx-source
 	url = https://github.com/nginx/nginx.git
 	branch = master
-	shallow = true
 [submodule "bundles/salt"]
 	path = bundles/salt
 	url = https://github.com/saltstack/salt-vim
 	branch = master
-	shallow = true
 [submodule "bundles/tskeleton"]
 	path = bundles/tskeleton
 	url = https://github.com/tomtom/tskeleton_vim.git
 	branch = master
-	shallow = true
 [submodule "bundles/gitgutter"]
 	path = bundles/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
 	branch = master
-	shallow = true
 [submodule "bundles/virtualenv"]
 	path = bundles/virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
 	branch = master
-	shallow = true
 [submodule "bundles/go-explorer"]
 	path = bundles/go-explorer
 	url = https://github.com/garyburd/go-explorer.git
 	branch = master
-	shallow = true
 [submodule "bundles/vim-indent-guides"]
 	path = bundles/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
 	branch = master
-	shallow = true
 [submodule "bundles/vim-better-whitespace"]
 	path = bundles/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
 	branch = master
-	shallow = true
 [submodule "bundles/toml"]
 	path = bundles/toml
 	url = https://github.com/cespare/vim-toml.git
 	branch = master
-	shallow = true
 [submodule "bundles/vim-table-mode"]
 	path = bundles/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
 	branch = master
-	shallow = true
 [submodule "bundles/vim-bracketed-paste"]
 	path = bundles/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
 	branch = master
-	shallow = true
 [submodule "bundles/ale"]
 	path = bundles/ale
 	url = https://github.com/w0rp/ale.git
