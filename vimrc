@@ -14,6 +14,9 @@ call DisablePluginIf("ultisnips", !has("python"), "Missing 'python' support, 'ul
 
 if v:version < 800
   call DisablePlugin("ale")
+else
+  " ALE claims to be incompatible with syntastic
+  call DisablePlugin("syntastic")
 endif
 
 " disable vim-go if go binary not found
