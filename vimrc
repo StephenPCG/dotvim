@@ -37,6 +37,9 @@ else
   call WarnOnce("'Pathogen' installation not found, forget to update submodules?")
 endif
 
+" enable bulitin man plugin, enables ':Man'
+runtime ftplugin/man.vim
+
 """ General settings
 syntax enable
 filetype plugin indent on
