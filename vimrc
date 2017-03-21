@@ -248,6 +248,8 @@ if IsPluginEnabled("ale")
   let g:ale_set_loclist = 1
   let g:ale_set_quickfix = 0
   let g:ale_open_list = 0
+
+  let g:ale_python_pylint_options = '--rcfile ' . g:vimrcroot . 'pylintrc'
 endif
 
 " neocomplete
