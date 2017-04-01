@@ -250,6 +250,10 @@ if IsPluginEnabled("ale")
   let g:ale_open_list = 0
 
   let g:ale_python_pylint_options = '--rcfile ' . g:vimrcroot . 'pylintrc'
+
+  let g:ale_linters = {
+        \  'go': ['gofmt -e', 'go vet', 'golint'],
+        \}
 endif
 
 " neocomplete
