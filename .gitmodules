@@ -122,3 +122,7 @@
 	path = bundles/python-syntax
 	url = https://github.com/hdima/python-syntax.git
 	branch = master
+[submodule "bundles/wmgraphviz"]
+	path = bundles/wmgraphviz
+	url = https://github.com/wannesm/wmgraphviz.vim.git
+	branch = master

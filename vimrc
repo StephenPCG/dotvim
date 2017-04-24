@@ -394,6 +394,12 @@ endif
 " http://git.pld-linux.org/gitweb.cgi/?p=packages/vim-syntax-vcl.git;a=summary
 " Not Installed
 
+" WMGraphiviz
+" https://github.com/wannesm/wmgraphviz.vim
+if IsPluginEnabled("wmgraphviz")
+  nmap <leader>gc :GraphvizCompile<cr>
+endif
+
 """ Key Mappings
 nmap <space> :
 vmap <space> :
