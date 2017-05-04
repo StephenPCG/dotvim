@@ -15,8 +15,24 @@ or use temporarily:
 
 ### Dependencies
 
-    * pyflakes
-    * pylint
-    * the\_silver\_searcher (brew), silversearcher-ag (apt-get)
-    * :call InstallGolangTools(-1)
-    * ctags (brew), exuberant-ctags (apt-get)
+* pyflakes
+* pylint
+* the\_silver\_searcher (brew), silversearcher-ag (apt-get)
+* :call InstallGolangTools(-1)
+* ctags (brew), exuberant-ctags (apt-get)
+
+### Notes
+
+Install plugin:
+```
+git submodule add -b master https://... bundles/...
+git add ...
+git commit ...
+```
+
+Upgrade submodules:
+```
+git submodule update --recursive --remote
+git add ...
+git commit ...
+```
