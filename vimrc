@@ -24,10 +24,10 @@ if empty($GOPATH) || !executable("go")
   call DisablePlugin("vim-go")
   call DisablePlugin("go-explorer")
 else
-  let g:go_bin_path = g:vimrcroot . "cache/vim-go"
+  let g:go_bin_path = g:vimrcroot . "cache/gobin"
   let $PATH = $PATH . ":" . g:go_bin_path
-  if !executable("getool")
-    call WarnOnce("Go tools not installed, you should install go tools with: 'call InstallGolangTools(-1)'")
+  if !executable("golint")
+    call WarnOnce("Go tools not installed, you should install go tools with: ':call InstallGoBinaries()'")
   endif
 endif
 
@@ -362,7 +362,6 @@ if IsPluginEnabled("vim-go")
   " disable snippets provided by go-vim
   "let g:go_snippet_engine = ""
   "let g:neosnippet#snippets_directory += [g:vimrcroot . 'bundles/go/gosnippets/snippets']
-  let g:go_bin_path = g:vimrcroot . "cache/vim-go/"
   "let g:go_disable_autoinstall = 1
   "let g:go_fmt_autosave = 0
   au FileType go nmap K <Plug>(go-doc)

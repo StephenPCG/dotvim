@@ -165,75 +165,6 @@ function! WarnOnce(message)
   echohl None
 endfunction
 
-" these packages are used by vim-go and can be automatically installed if
-" needed by the user with GoInstallBinaries
-let s:packages = [
-            \ "github.com/nsf/gocode",
-            \ "github.com/alecthomas/gometalinter",
-            \ "golang.org/x/tools/cmd/goimports",
-            \ "github.com/rogpeppe/godef",
-            \ "golang.org/x/tools/cmd/oracle",
-            \ "golang.org/x/tools/cmd/gorename",
-            \ "github.com/golang/lint/golint",
-            \ "github.com/kisielk/errcheck",
-            \ "github.com/jstemmer/gotags",
-            \ "github.com/klauspost/asmfmt/cmd/asmfmt",
-            \ "github.com/fatih/motion",
-            \ "github.com/garyburd/go-explorer/src/getool",
-            \ ]
-
-function! InstallGolangTools(updateBinaries)
-  " vim-go provides GoInstallBinaries
-  " goexplorer requires getool
-  " install binaries into g:vimrcroot . "cache/vim-go"
-    if $GOPATH == ""
-        echohl Error | echomsg "$GOPATH is not set" | echohl None | return
-    endif
-
-    " change $GOBIN so go get can automatically install to it
-    let $GOBIN = g:go_bin_path
-
-    " when shellslash is set on MS-* systems, shellescape puts single quotes
-    " around the output string. cmd on Windows does not handle single quotes
-    " correctly. Unsetting shellslash forces shellescape to use double quotes
-    " instead.
-    let resetshellslash = 0
-    if has('win32') && &shellslash
-        let resetshellslash = 1
-        set noshellslash
-    endif
-
-    let cmd = "go get -u -v "
-    let s:go_version = matchstr(system("go version"), '\d.\d.\d')
-    " https://github.com/golang/go/issues/10791
-    if s:go_version > "1.4.0" && s:go_version < "1.5.0"
-        let cmd .= "-f "
-    endif
-
-    for pkg in s:packages
-        let basename = fnamemodify(pkg, ":t")
-        let bin = basename
-        if !executable(bin) || a:updateBinaries == 1
-            if a:updateBinaries == 1
-                echo "go: Updating ". basename .". Reinstalling ". pkg . " to folder " . g:go_bin_path
-            else
-                echo "go: ". basename ." not found. Installing ". pkg . " to folder " . g:go_bin_path
-            endif
-
-
-            let out = system(cmd . shellescape(pkg))
-            if v:shell_error
-                echo "Error installing ". pkg . ": " . out
-            endif
-        endif
-    endfor
-
-    " restore back!
-    if resetshellslash
-        set shellslash
-    endif
-endfunction
-
 function! NERDTreeQuit()
   redir => buffersoutput
   silent buffers
@@ -255,4 +186,19 @@ function! NERDTreeQuit()
   if (!windowfound)
     quitall
   endif
+endfunction
+
+let s:go_packages = [
+      \ "honnef.co/go/tools/cmd/gosimple",
+      \]
+function! InstallGoBinaries()
+  " install vim-go commands
+  execute 'GoUpdateBinaries'
+
+  " Install additional go tools
+  let $GOBIN = g:go_bin_path
+  for pkg in s:go_packages
+    echo "Installing " . pkg . " to folder " . g:go_bin_path
+    call system("go get " . pkg)
+  endfor
 endfunction
