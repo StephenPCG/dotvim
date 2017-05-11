@@ -252,7 +252,7 @@ if IsPluginEnabled("ale")
   let g:ale_python_pylint_options = '--rcfile ' . g:vimrcroot . 'pylintrc'
 
   let g:ale_linters = {
-        \  'go': ['gofmt -e', 'go vet', 'golint'],
+        \  'go': ['gometalinter', 'gofmt'],
         \}
 endif
 
