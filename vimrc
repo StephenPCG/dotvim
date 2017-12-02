@@ -318,8 +318,19 @@ endif
 
 " ag.vim
 " https://github.com/rking/ag.vim
-if IsPluginEnabled("ag")
-  let g:ag_highlight=1
+"if IsPluginEnabled("ag")
+"  let g:ag_highlight=1
+"endif
+
+" ack.vim (replaces ag.vim)
+" https://github.com/mileszs/ack.vim.git
+if IsPluginEnabled("ack")
+  " see: https://github.com/rking/ag.vim/issues/124#issuecomment-227038003
+  let g:ackprg = 'ag --vimgrep --smart-case'
+  cnoreabbrev Ag Ack!
+
+  cnoreabbrev Ack Ack!
+  let g:ackhighlight = 1
 endif
 
 " gundo
