@@ -38,10 +38,6 @@
 	path = bundles/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
-[submodule "bundles/ag"]
-	path = bundles/ag
-	url = https://github.com/rking/ag.vim
-	branch = master
 [submodule "bundles/gundo"]
 	path = bundles/gundo
 	url = https://github.com/sjl/gundo.vim
