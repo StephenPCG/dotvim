@@ -126,3 +126,7 @@
 	path = bundles/wmgraphviz
 	url = https://github.com/wannesm/wmgraphviz.vim.git
 	branch = master
+[submodule "bundles/vim-vue"]
+	path = bundles/vim-vue
+	url = https://github.com/posva/vim-vue.git
+	branch = master
