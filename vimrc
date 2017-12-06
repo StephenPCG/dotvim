@@ -187,7 +187,7 @@ if IsPluginEnabled("nerdtree")
   let NERDTreeWinPos = "right"
   let NERDTreeWinSize = s:PlugWinSize
   let NERDTreeShowHidden = 0
-  let NERDTreeIgnore = ['\.pyc$', '\.swp$', '\.egg-info$', 'node_modules', 'bower_components']
+  let NERDTreeIgnore = ['\.pyc$', '\.swp$', '\.egg-info$', 'node_modules', 'bower_components', '__pycache__']
   if IsPluginEnabled("netrw")
     let NERDTreeHijackNetrw = 0
   endif
