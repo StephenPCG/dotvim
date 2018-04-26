@@ -1,2 +1,0 @@
-Some plugins will store cache data in the first found runtime dir, without this directory.
-This folder is used to 'catch' such garbage, so normal plugin directories will not suffer.

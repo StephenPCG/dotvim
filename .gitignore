@@ -1,7 +1,0 @@
-cache/
-*.swp
-tags
-personal.vimrc
-.netrwhist
-.VimballRecord
-bundles/aaa/
