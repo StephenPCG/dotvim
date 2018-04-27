@@ -97,6 +97,6 @@ endfunction
 " set tab width
 function! SetTabWidth(width)
   setlocal expandtab
-  let &shiftwidth = a:width
-  let &tabstop = a:width
+  exec 'setlocal tabstop=' . a:width
+  exec 'setlocal shiftwidth=' . a:width
 endfunction
