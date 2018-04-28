@@ -134,3 +134,13 @@ endif
 if dein#tap('python-syntax')
   let python_highlight_all = 1
 endif
+
+" vim-json
+if dein#tap('vim-json')
+  let g:vim_json_syntax_conceal = 0
+endif
+
+" vim-go
+if dein#tap('vim-go')
+  "let g:go_fmt_experimental = 1
+endif

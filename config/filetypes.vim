@@ -61,6 +61,8 @@ augroup filetype_golang
   "" Don't fold code, or it will fold on each save
   "autocmd FileType go setlocal foldmethod=syntax
   autocmd FileType go setlocal foldnestmax=0
+  " see: https://github.com/fatih/vim-go/issues/502
+  " alternative way is set g:go_fmt_experimental = 1
 augroup END
 
 " {{{1 sql server
