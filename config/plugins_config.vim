@@ -23,7 +23,7 @@ endif
 
 " tagbar
 if dein#tap('tagbar')
-  nnoremap <silent> T :TagbarToggle<cr>
+  nnoremap <silent> <leader>t :TagbarToggle<cr>
   let g:tagbar_width = 30
   let g:tagbar_left = 1
   let g:tagbar_iconchars = ['▸', '▾']
@@ -35,8 +35,8 @@ endif
 if dein#tap('nerdcommenter')
   let g:NERDCreateDefaultMappings = 0
   let g:NERDDefaultAlign = 'left'
-  nmap <leader>cc <plug>NERDCommenterToggle
-  xmap <leader>cc <plug>NERDCommenterToggle
+  nmap <leader>c <plug>NERDCommenterToggle
+  xmap <leader>c <plug>NERDCommenterToggle
 endif
 
 " nerdtree
@@ -65,7 +65,7 @@ endif
 
 " bufexplorer
 if dein#tap('bufexplorer')
-  nmap <silent> F :BufExplorer<CR>
+  nmap <silent> B :BufExplorer<CR>
 
   let g:bufExplorerDisableDefaultKeyMapping = 1
   let g:bufExplorerDefaultHelp = 0

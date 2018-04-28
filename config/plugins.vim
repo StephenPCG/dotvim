@@ -3,6 +3,10 @@ let s:_dein_install_dir = join([s:_dein_cache_dir,
       \ 'repos', 'github.com', 'Shougo', 'dein.vim'], g:system.Fsep)
 let s:_local_plugin_dir = g:_vimrc_root . 'local'
 
+" g:go_bin_path is used by vim-go
+let g:go_bin_path = g:_vimrc_root . join(['cache', 'gobin'], g:system.Fsep)
+let $PATH = $PATH . g:system.Psep . g:go_bin_path
+
 " Code borrowed from SpaceVim:
 " https://github.com/SpaceVim/SpaceVim/blob/master/autoload/zvim/plug.vim
 function! s:install_dein() abort
@@ -75,3 +79,6 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+" enable bulitin man plugin, enables ':Man'
+runtime ftplugin/man.vim

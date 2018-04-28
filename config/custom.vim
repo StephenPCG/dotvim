@@ -100,3 +100,10 @@ function! SetTabWidth(width)
   exec 'setlocal tabstop=' . a:width
   exec 'setlocal shiftwidth=' . a:width
 endfunction
+
+" http://vim.wikia.com/wiki/Highlight_current_line
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
