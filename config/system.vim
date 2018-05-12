@@ -72,6 +72,17 @@ else
   let s:system['Fsep'] = '/'
 endif
 
+" when using macOS, use homebrew installed version of bash for shell
+function! s:shell() abort
+  if executable('/usr/local/bin/bash')
+    return '/usr/local/bin/bash'
+  else
+    return '/bin/bash'
+  endif
+endfunction
+
+let s:system['shell'] = s:shell()
+
 let g:system = deepcopy(s:system)
 
 " g:system:
@@ -80,6 +91,7 @@ let g:system = deepcopy(s:system)
 "   isOSX: bool
 "   isDarwin: bool
 "   name: string, Linux/Windows/OSX
+"   shell: /usr/local/bin/bash or /bin/bash
 "   fileformat: ?
 "   Psep: string, ; or \
 "   Fsep: string, : or /

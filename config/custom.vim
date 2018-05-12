@@ -68,7 +68,7 @@ set linebreak
 set formatoptions+=mMj1
 set vb t_vb=
 set noshowmode
-set shell=/bin/bash
+let &shell=g:system.shell
 set completeopt+=longest
 set completeopt+=noselect
 " If preview is on, vim automatically opens preview window on completion, but
