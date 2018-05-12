@@ -51,6 +51,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('ntpeters/vim-better-whitespace')
   call dein#add('ConradIrwin/vim-bracketed-paste')
   "call dein#add('Shougo/denite.nvim')
+  call dein#add('xolox/vim-misc')  " required by vim-notes
+  call dein#add('xolox/vim-notes')
 
   call dein#add('w0rp/ale')
   call dein#add('hdima/python-syntax')

@@ -144,3 +144,10 @@ endif
 if dein#tap('vim-go')
   "let g:go_fmt_experimental = 1
 endif
+
+" vim-notes
+if dein#tap('vim-notes')
+  let g:notes_directories = ['~/.vimnotes']
+  let g:notes_smart_quotes = 0
+  let g:notes_conceal_url = 0
+endif
