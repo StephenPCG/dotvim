@@ -45,6 +45,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('jlanzarotta/bufexplorer')
   call dein#add('Yggdroot/LeaderF')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('junegunn/gv.vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('mhinz/vim-grepper') " replaces mileszs/ack.vim and/or rking/ag.vim
   call dein#add('tpope/vim-unimpaired')
@@ -53,6 +54,7 @@ if dein#load_state('~/.cache/dein')
   "call dein#add('Shougo/denite.nvim')
   call dein#add('xolox/vim-misc')  " required by vim-notes
   call dein#add('xolox/vim-notes')
+  call dein#add('tpope/vim-dadbod')
 
   call dein#add('w0rp/ale')
   call dein#add('hdima/python-syntax')
