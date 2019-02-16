@@ -76,8 +76,11 @@ augroup END
 augroup filetype_web
   autocmd!
   autocmd FileType html call SetTabWidth(2)
+  autocmd FileType htmldjango call SetTabWidth(2)
   autocmd FileType css call SetTabWidth(2)
-  autocmd FileType javascript call SetTabWidth(4)
+  autocmd FileType scss call SetTabWidth(2)
+  autocmd FileType javascript call SetTabWidth(2)
+  autocmd FileType vue call SetTabWidth(2)
 augroup END
 
 " {{{1 yaml
