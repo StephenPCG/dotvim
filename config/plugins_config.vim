@@ -29,14 +29,40 @@ if dein#tap('tagbar')
   let g:tagbar_iconchars = ['▸', '▾']
   let g:tagbar_compact = 1
   let g:tagbar_foldlevel = 99
+  " in tagbar window, use 's' to toggle sort
+  "let g:tagbar_sort = 0
 endif
 
 " nerdcommenter
 if dein#tap('nerdcommenter')
-  let g:NERDCreateDefaultMappings = 0
   let g:NERDDefaultAlign = 'left'
+  let g:NERDTrimTrailingWhitespace = 1
+  let g:NERDCreateDefaultMappings = 0
   nmap <leader>c <plug>NERDCommenterToggle
   xmap <leader>c <plug>NERDCommenterToggle
+
+  " see https://github.com/posva/vim-vue
+  if dein#tap('vim-vue')
+    let g:ft = ''
+    function! NERDCommenter_before()
+      if &ft == 'vue'
+        let g:ft = 'vue'
+        let stack = synstack(line('.'), col('.'))
+        if len(stack) > 0
+          let syn = synIDattr((stack)[0], 'name')
+          if len(syn) > 0
+            exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+          endif
+        endif
+      endif
+    endfunction
+    function! NERDCommenter_after()
+      if g:ft == 'vue'
+        setf vue
+        let g:ft = ''
+      endif
+    endfunction
+  endif
 endif
 
 " nerdtree
@@ -81,26 +107,6 @@ if dein#tap('bufexplorer')
   augroup END
 endif
 
-" ale
-if dein#tap('ale')
-  let g:ale_set_loclist = 1
-  let g:ale_set_quickfix = 0
-  let g:ale_open_list = 0
-
-  let g:ale_sign_error = '✗'
-  let g:ale_sign_warning = '⚠'
-  let g:ale_echo_msg_format = '[#%linter%#] %severity% %s '
-  let g:ale_echo_msg_error_str = '✗'
-  let g:ale_echo_msg_warning_str = '⚠'
-
-  let g:ale_python_pylint_options = '--rcfile ' . g:_vimrc_root . 'pylintrc'
-endif
-
-" deoplete
-if dein#tap('deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
-endif
-
 " fugitive
 if dein#tap('vim-fugitive')
   augroup Fugitive
@@ -130,21 +136,6 @@ if dein#tap('vim-unimpaired')
   vmap <C-Down> ]egv
 endif
 
-" python-syntax
-if dein#tap('python-syntax')
-  let python_highlight_all = 1
-endif
-
-" vim-json
-if dein#tap('vim-json')
-  let g:vim_json_syntax_conceal = 0
-endif
-
-" vim-go
-if dein#tap('vim-go')
-  "let g:go_fmt_experimental = 1
-endif
-
 " vim-notes
 if dein#tap('vim-notes')
   let g:notes_directories = ['~/.vimnotes']
@@ -152,8 +143,43 @@ if dein#tap('vim-notes')
   let g:notes_conceal_url = 0
 endif
 
+" ale
+if dein#tap('ale')
+  let g:ale_set_loclist = 1
+  let g:ale_set_quickfix = 0
+  let g:ale_open_list = 0
+
+  let g:ale_sign_error = '✗'
+  let g:ale_sign_warning = '⚠'
+  let g:ale_echo_msg_format = '[#%linter%#] %severity% %s '
+  let g:ale_echo_msg_error_str = '✗'
+  let g:ale_echo_msg_warning_str = '⚠'
+
+  let g:ale_python_pylint_options = '--rcfile ' . g:VIMRC_ROOT . 'pylintrc'
+endif
+
+" python-syntax
+if dein#tap('python-syntax')
+  let python_highlight_all = 1
+endif
+
+" vim-go
+if dein#tap('vim-go')
+  "let g:go_fmt_experimental = 1
+endif
+
+" vim-json
+if dein#tap('vim-json')
+  let g:vim_json_syntax_conceal = 0
+endif
+
 " editorconfig
 if dein#tap('editorconfig-vim')
   " ensures this plugin works well with Tim Pope's fugitive
   let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+endif
+
+" deoplete
+if dein#tap('deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
 endif

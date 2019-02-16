@@ -49,7 +49,7 @@ else
   set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 endif
 
-set list
+"set list
 set listchars=tab:▸\ ,eol:¬
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
@@ -107,3 +107,16 @@ augroup CursorLine
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
 augroup END
+
+" use system python (instead of virtualenv)
+if executable('/usr/local/bin/python2')
+  let g:python_host_prog = '/usr/local/bin/python2'
+elseif executable('/usr/bin/python2')
+  let g:python_host_prog = '/usr/bin/python2'
+endif
+
+if executable('/usr/local/bin/python3')
+  let g:python3_host_prog = '/usr/local/bin/python3'
+elseif executable('/usr/bin/python3')
+  let g:python3_host_prog = '/usr/local/python3'
+endif

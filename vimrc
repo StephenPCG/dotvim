@@ -1,15 +1,21 @@
 set nocompatible
-set t_Co=256
 let mapleader = ';'
 nnoremap <space> :
 vnoremap <space> :
 
-let g:_vimrc_root = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/'
-let &rtp .= ',' . g:_vimrc_root
+if has('win16') || has('win32') || has('win64')
+  let s:Fsep = '\'
+else
+  let s:Fsep = '/'
+endif
 
-exec 'source ' . g:_vimrc_root . 'config/system.vim'
-exec 'source ' . g:_vimrc_root . 'config/plugins.vim'
-exec 'source ' . g:_vimrc_root . 'config/plugins_config.vim'
-exec 'source ' . g:_vimrc_root . 'config/custom.vim'
-exec 'source ' . g:_vimrc_root . 'config/keymappings.vim'
-exec 'source ' . g:_vimrc_root . 'config/filetypes.vim'
+let g:VIMRC_ROOT = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let &rtp .= ',' . g:VIMRC_ROOT
+
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'system.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'custom.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'plugins.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'plugins_config.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'denite.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'keymappings.vim'], s:Fsep)
+exec 'source ' . join([g:VIMRC_ROOT, 'config', 'filetypes.vim'], s:Fsep)

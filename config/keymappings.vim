@@ -5,6 +5,8 @@ inoremap <c-w> <c-g>u<c-w>
 
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
+cnoremap <C-e> <END>
+cnoremap <C-a> <HOME>
 nnoremap <leader>ww :w!<cr>
 nnoremap <C-z> :shell<cr>
 

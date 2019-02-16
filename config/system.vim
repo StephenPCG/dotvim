@@ -9,11 +9,15 @@ let s:system['isOSX'] = has('macunix')
 
 function! s:name() abort
   if s:system.isLinux
-    return 'Linux'
+    return 'linux'
   elseif s:system.isWindows
-    return 'Windows'
+    if has('win32unix')
+      return 'cygwin'
+    else
+      return 'windows'
+    endif
   else
-    return 'OSX'
+    return 'mac'
   endif
 endfunction
 
