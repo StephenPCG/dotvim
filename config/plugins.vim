@@ -30,6 +30,7 @@ call s:install_dein()
 if dein#load_state('~/.cache/dein')
   call dein#begin(s:_dein_cache_dir)
   call dein#add('Shougo/dein.vim')
+  call dein#add('wsdjeg/dein-ui.vim')
   call dein#add(s:_dein_cache_dir)
   call dein#add(s:_local_plugin_dir)
 
