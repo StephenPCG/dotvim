@@ -151,3 +151,9 @@ if dein#tap('vim-notes')
   let g:notes_smart_quotes = 0
   let g:notes_conceal_url = 0
 endif
+
+" editorconfig
+if dein#tap('editorconfig-vim')
+  " ensures this plugin works well with Tim Pope's fugitive
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+endif

@@ -63,6 +63,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('cespare/vim-toml')
   call dein#add('posva/vim-vue')
   call dein#add('elzr/vim-json')
+  call dein#add('editorconfig/editorconfig-vim')
 
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
