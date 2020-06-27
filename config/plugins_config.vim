@@ -156,6 +156,10 @@ if dein#tap('ale')
   let g:ale_echo_msg_warning_str = '⚠'
 
   let g:ale_python_pylint_options = '--rcfile ' . g:VIMRC_ROOT . 'pylintrc'
+
+  let g:ale_linters = {
+        \  'javascript': ['eslint'],
+        \}
 endif
 
 " python-syntax
