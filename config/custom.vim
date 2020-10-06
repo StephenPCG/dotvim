@@ -109,14 +109,18 @@ augroup CursorLine
 augroup END
 
 " use system python (instead of virtualenv)
-if executable('/usr/local/bin/python2')
+if executable($HOME . '/.pyenv/versions/neovim2/bin/python')
+  let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
+elseif executable('/usr/local/bin/python2')
   let g:python_host_prog = '/usr/local/bin/python2'
 elseif executable('/usr/bin/python2')
   let g:python_host_prog = '/usr/bin/python2'
 endif
 
-if executable('/usr/local/bin/python3')
+if executable($HOME . '/.pyenv/versions/neovim3/bin/python')
+  let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+elseif executable('/usr/local/bin/python3')
   let g:python3_host_prog = '/usr/local/bin/python3'
 elseif executable('/usr/bin/python3')
-  let g:python3_host_prog = '/usr/local/python3'
+  let g:python3_host_prog = '/usr/bin/python3'
 endif
