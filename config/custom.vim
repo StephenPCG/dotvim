@@ -44,7 +44,7 @@ if g:system.isWindows
   endif
 else
   " set default encoding to utf-8
-  set termencoding=utf-8
+  "set termencoding=utf-8
   set fileencoding=utf-8
   set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 endif
@@ -108,17 +108,8 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" use system python (instead of virtualenv)
-if executable($HOME . '/.pyenv/versions/neovim2/bin/python')
-  let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
-elseif executable('/usr/local/bin/python2')
-  let g:python_host_prog = '/usr/local/bin/python2'
-elseif executable('/usr/bin/python2')
-  let g:python_host_prog = '/usr/bin/python2'
-endif
-
-if executable($HOME . '/.pyenv/versions/neovim3/bin/python')
-  let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+if executable($HOME . '/.vim/venv/bin/python3')
+  let g:python3_host_prog = $HOME . '/.vim/venv/bin/python3'
 elseif executable('/usr/local/bin/python3')
   let g:python3_host_prog = '/usr/local/bin/python3'
 elseif executable('/usr/bin/python3')
