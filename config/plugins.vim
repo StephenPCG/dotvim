@@ -59,8 +59,6 @@ if dein#load_state(s:DEIN_CACHE_DIR)
   call dein#add('fatih/vim-go')
   call dein#add('nginx/nginx', {'rtp': 'contrib/vim'})
   call dein#add('cespare/vim-toml')
-  call dein#add('vim-vue/vim-vue')
-  call dein#add('vim-json/vim-json')
   call dein#add('editorconfig/editorconfig-vim')
   " call dein#add('leafgarland/typescript-vim')
 

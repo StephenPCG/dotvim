@@ -1,6 +1,6 @@
 " solarized colortheme
 if dein#tap('vim-colors-solarized')
-  colorscheme solarized
+  silent! colorscheme solarized
 endif
 
 " airline
@@ -41,28 +41,6 @@ if dein#tap('nerdcommenter')
   nmap <leader>c <plug>NERDCommenterToggle
   xmap <leader>c <plug>NERDCommenterToggle
 
-  " see https://github.com/vim-vue/vim-vue
-  if dein#tap('vim-vue')
-    let g:ft = ''
-    function! NERDCommenter_before()
-      if &ft == 'vue'
-        let g:ft = 'vue'
-        let stack = synstack(line('.'), col('.'))
-        if len(stack) > 0
-          let syn = synIDattr((stack)[0], 'name')
-          if len(syn) > 0
-            exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-          endif
-        endif
-      endif
-    endfunction
-    function! NERDCommenter_after()
-      if g:ft == 'vue'
-        setf vue
-        let g:ft = ''
-      endif
-    endfunction
-  endif
 endif
 
 " nerdtree
@@ -170,11 +148,6 @@ endif
 " vim-go
 if dein#tap('vim-go')
   "let g:go_fmt_experimental = 1
-endif
-
-" vim-json
-if dein#tap('vim-json')
-  let g:vim_json_syntax_conceal = 0
 endif
 
 " editorconfig
