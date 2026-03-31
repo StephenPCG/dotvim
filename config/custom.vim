@@ -54,7 +54,29 @@ set listchars=tab:▸\ ,eol:¬
 " to insert ¬, type: ctrl-v u00ac
 " to insert ▸, type: ctrl-v u25b8
 
-autocmd BufEnter * :syntax sync fromstart
+let g:large_file_line_threshold = get(g:, 'large_file_line_threshold', 5000)
+let g:large_file_size_threshold = get(g:, 'large_file_size_threshold', 1024 * 1024)
+
+function! s:MaybeSyncSyntaxFromStart() abort
+  if &buftype !=# ''
+    return
+  endif
+
+  let l:line_count = line('$')
+  let l:byte_size = getfsize(expand('%:p'))
+  if l:byte_size < 0
+    let l:byte_size = 0
+  endif
+
+  if l:line_count <= g:large_file_line_threshold && l:byte_size <= g:large_file_size_threshold
+    syntax sync fromstart
+  endif
+endfunction
+
+augroup SyntaxSync
+  autocmd!
+  autocmd BufEnter * call <SID>MaybeSyncSyntaxFromStart()
+augroup END
 set number
 set lazyredraw
 set hidden
@@ -66,7 +88,10 @@ set nobackup
 set nowritebackup
 set linebreak
 set formatoptions+=mMj1
-set vb t_vb=
+set vb
+if !has('nvim')
+  set t_vb=
+endif
 set noshowmode
 let &shell=g:system.shell
 set completeopt+=longest
@@ -81,6 +106,21 @@ set completeopt-=preview
 "augroup END
 
 set background=dark
+
+if has('nvim')
+  if exists('+termguicolors')
+    set termguicolors
+  endif
+  if exists('+inccommand')
+    set inccommand=nosplit
+  endif
+  if exists('+signcolumn')
+    set signcolumn=yes
+  endif
+  if exists('+clipboard')
+    set clipboard+=unnamedplus
+  endif
+endif
 
 
 " don't close window when deleting buffer
@@ -108,8 +148,28 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-if executable($HOME . '/.vim/venv/bin/python3')
-  let g:python3_host_prog = $HOME . '/.vim/venv/bin/python3'
+let s:vim_venv_dir = expand('~/.vim/venv')
+
+function! s:EnsureUvVenv() abort
+  if isdirectory(s:vim_venv_dir) || !executable('uv')
+    return
+  endif
+
+  let l:venv_python = s:vim_venv_dir . '/bin/python3'
+  call system('uv venv ' . shellescape(s:vim_venv_dir))
+  if v:shell_error != 0
+    return
+  endif
+
+  call system('uv pip install --python ' . shellescape(l:venv_python) . ' pynvim')
+endfunction
+
+call <SID>EnsureUvVenv()
+
+if executable(s:vim_venv_dir . '/bin/python3')
+  let g:python3_host_prog = s:vim_venv_dir . '/bin/python3'
+elseif executable('/opt/homebrew/bin/python3')
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
 elseif executable('/usr/local/bin/python3')
   let g:python3_host_prog = '/usr/local/bin/python3'
 elseif executable('/usr/bin/python3')

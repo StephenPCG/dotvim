@@ -41,7 +41,7 @@ if dein#tap('nerdcommenter')
   nmap <leader>c <plug>NERDCommenterToggle
   xmap <leader>c <plug>NERDCommenterToggle
 
-  " see https://github.com/posva/vim-vue
+  " see https://github.com/vim-vue/vim-vue
   if dein#tap('vim-vue')
     let g:ft = ''
     function! NERDCommenter_before()
